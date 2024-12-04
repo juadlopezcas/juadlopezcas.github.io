@@ -135,6 +135,48 @@
             color: #666;
             font-size: 0.9em;
         }
+        
+        .citation {
+            border-left: 3px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        .citation-title {
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .citation-author {
+            color: #4a5568;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .citation-details {
+            color: #718096;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+        }
+
+        .citation-abstract {
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+
+        .citation-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .citation-link:hover {
+            text-decoration: underline;
+        }
 
         footer {
             background: #2d3748;
@@ -179,12 +221,8 @@
     <div class="container">
         <section id="about" class="section">
             <h2>About</h2>
-            <p>I am a Ph.D. Candidate in Applied Mathematics and Statistics at Johns Hopkins University. I am interested in machine learning, geometric methods for data science and optimal transport. I am fond of teaching-mentoring, cycling, coffee and anime. I am currently interested in getting involved in open source projects. 
-                
-            On this website, you can find more information about me and some of my projects</p>
+            <p>I am a Ph.D. Candidate in Applied Mathematics and Statistics at Johns Hopkins University, interested in machine learning, geometric methods for data science and optimal transport. Beyond research, I dedicate time to teaching and mentoring. My interests extend to cycling, artisanal coffee, and anime. Currently seeking opportunities to contribute to open-source initiatives.</p>
         </section>
-
-        
 
         <section id="projects" class="section">
             <h2>Projects</h2>
@@ -201,7 +239,17 @@
 
         <section id="research" class="section">
             <h2>Research</h2>
-            <p>Description of your research work, publications, and interests.</p>
+            <p>Master thesis:</p>
+            <div class="citation">
+                <div class="citation-title">A distributional approach to asymptotics of the Spectral Action</div>
+                <div class="citation-author">López Castaño Juan Daniel</div>
+                <div class="citation-details">2020</div>
+                <div class="citation-abstract">
+                    La acción espectral es el concepto natural y apropiado para hablar de una acción en el espacio de triplas espectrales, y fue introducido por primera vez por Chamseddine y Connes en 1997. Después de incluir definiciones y resultados que conciernen a la teoría de Cesàro para distribuciones y análisis asintótico, discutimos la expansión asintótica de la acción espectral en el sentido distribucional para una tripla espectral conmutativa, siguiendo a Estrada, Gracia-Bondía y Várilly.
+                </div>
+                <a href="https://repositorio.unal.edu.co/handle/unal/79294" class="citation-link" target="_blank">View Publication →</a>
+            </div>
+            
         </section>
 
         <section id="blog" class="section">
