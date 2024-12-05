@@ -419,12 +419,8 @@ $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left
 <div style="display: flex; gap: 20px; align-items: center; margin: 20px 0;">
     <!-- Left column - Text -->
     <div style="flex: 1;">
-        <p>In the realm of climate research, scientists face an intriguing challenge: understanding how <span style="font-weight: bold;">spatial patterns</span> evolve over time. This involves analyzing complex multidimensional time series that capture the ever-changing face of our climate system.</p>
-
-        <p>Here's our <span style="color: #20B2AA; font-weight: bold;">goal</span>: to discover a smaller set of <span style="font-weight: bold;">uncorrelated</span> hidden patterns (<span style="color: #FF1493;">factors</span>) that drive changes in the climate's covariance structure.</p>
-
-        <p>Mathematically, we express this through the field:</p>
-        <p>$X = [X_1,\ldots,X_d]^\top$, with $X_i = [x_{t1},\ldots,x_{td}]$ $\implies$ $\text{Cov}(X) = \mathbb{E}XX^\top$</p>
+        <p>When studying Earth's climate, researchers face a challenge: tracking how <span style="font-weight: bold;">spatial patterns</span> evolve through time. This involves analyzing complex multidimensional time series.</p>
+        <p>We <span style="color: #20B2AA; font-weight: bold;">aim</span> to uncover relevant factors hidden in this complexity. For this analysis, we focus on Sea Surface Temperature data, tracking where and when temperatures deviate from their normal patterns.</p>
     </div>
 
     <!-- Right column - Plot -->
@@ -434,7 +430,8 @@ $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left
         </div>
     </div>
 </div>
-
+<p>To give this challenge mathematical precision, we organize our measurements into vector fields and study their relationships through covariance:</p>
+        <p style="text-align: center;">$X = [X_1,\ldots,X_d]^\top$, with $X_i = [x_{t1},\ldots,x_{td}]$ $\implies$ $\text{Cov}(X) = \mathbb{E}XX^\top$</p>
 <div style="display: flex; gap: 20px; align-items: center; margin: 20px 0;">
     <!-- Left side - Two plots -->
     <div style="flex: 2; display: flex; flex-direction: row; gap: 10px; justify-content: center;">
@@ -448,7 +445,7 @@ $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left
     
     <!-- Right side - Text -->
     <div style="flex: 1;">
-        <p>When applied to sea surface temperatures, our method reveals a fascinating story: it naturally identifies the <span style="color: #FF8C00;">El Niño</span> warming patterns in the central and eastern Pacific, while simultaneously capturing the characteristic <span style="color: #0066CC;">La Niña</span> cooling signatures through its orthogonality properties.</p>
+        <p>When applied to sea surface temperatures, our method identifies the <span style="color: #FF8C00;">El Niño</span> warming patterns in the central and eastern Pacific, while orthogonality captures <span style="color: #0066CC;">La Niña</span> cool waters.</p>
     </div>
 </div>
 
@@ -480,8 +477,8 @@ $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left
     </div>
 </div>
 
-<p style="text-align: center; margin-top: 20px;">
-    Looking at these results, we can see that GFA achieves something remarkable: it provides a <span style="font-weight: bold;">more interpretable</span> understanding of facial features compared to traditional methods like Varimax, making complex high-dimensional data more accessible and meaningful.
+<p style="text-align: left; margin-top: 20px;">
+    Looking at the results for the Faces Dataset, GFA provides a <span style="font-weight: bold;">more interpretable</span> facial features compared to traditional methods like Varimax.
 </p>
         </div>
 
