@@ -222,8 +222,8 @@
 
             <div style="display: flex; gap: 20px; align-items: center; margin: 20px 0;">
                 <!-- Left column - Image -->
-                <div style="flex: 1;">
-                    <img src="images/scatter.png" alt="Radial Structure Visualization" style="width: 100%; max-width: 400px;">
+                <div style="flex: 1; display: flex; justify-content: center;">
+                    <img src="images/scatter.png" alt="Radial Structure Visualization" style="width: 100%; max-width: 400px; align-items: center">
                 </div>
                 
                 <!-- Right column - Text -->
@@ -242,17 +242,17 @@
     <!-- Left column - Text -->
     <div style="flex: 1;">
         <p>Think about what happens with radial data: imagine points spreading out like spokes of a wheel. In this case, something interesting occurs - the <span style="color: red">covariance matrix ends up looking almost like a scaled identity matrix</span>:</p>
- 
+
         $$\mathbb{E}\left[XX^\top\right] \approx \lambda Id$$
- 
+
         <p>This presents a real challenge. Why? Because when your covariance matrix is nearly proportional to the identity, the principal components we get are essentially <span style="color: red;">pointing in random directions</span> - not very helpful for understanding the true structure of our data!</p>
     </div>
     
     <!-- Right column - Image -->
-    <div style="flex: 1;">
-        <img src="images/PCA_Issues.png" alt="Radial Structure PCA Issues" style="width: 100%; max-width: 400px;">
+    <div style="flex: 1; display: flex; justify-content: center;">
+        <img src="images/PCA_Issues.png" alt="Radial Structure PCA Performance" style="width: 100%; max-width: 400px;">
     </div>
- </div>
+</div>
 
 <p>One classical approach to handling radial structure is the <span style="color: #8A2BE2; font-weight: bold;">Varimax rotation method</span>. This technique works by taking the orthogonal basis that PCA finds and applying a clever rotation to better understand how the <span style="color: #FF1493;">factors</span> relate to each other.</p>
 
@@ -262,58 +262,68 @@ $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left
 
 <p><span style="color: #008080;">where $\Lambda = \text{PC}$.</span><span style="color: #800000; font-weight: bold;">The intuition</span> behind this approach is that by fitting to the fourth moment, we can capture more complex relationships in the data than traditional PCA, which only considers second moments.</p>
 
-<p>But <span style="color: #8A2BE2; font-weight: bold;">how well does Varimax actually perform?</span> Recent theoretical work by <span style="color: #20B2AA; font-weight: bold;">Rohe (2022)</span> provides some answers. Under <span style="text-decoration: underline;">several</span> assumptions about how the <span style="color: #FF1493;">factors</span> are distributed, we can bound the error of Varimax's estimates. Specifically, the distance between the estimated <span style="color: #FF1493;">factor model</span> $\hat{X}$ and the <span style="color: #800000;">true factors (up to signed permutations)</span> $XP_n$ is bounded by $O_p(\Delta_n^{-0.24}\log^{3.75} n)$ where this bound involves the mean of the data scaled by the sample size. While this theoretical guarantee might sound promising, practical applications often reveal limitations of the method.</p>
+<div style="display: flex; gap: 20px; align-items: center; margin: 20px 0;">
+    <!-- Left column - Image -->
+    <div style="flex: 1; display: flex; justify-content: center;">
+        <img src="images/varimax_issues.png" alt="Varimax Performance" style="width: 100%; max-width: 400px;">
+    </div>
+    
+    <!-- Right column - Text -->
+    <div style="flex: 1;">
+        <p>But <span style="color: #8A2BE2; font-weight: bold;">how well does Varimax actually perform?</span> Recent theoretical work by <span style="color: #20B2AA; font-weight: bold;">Rohe (2022)</span> provides some answers. Under <span style="text-decoration: underline;">several</span> assumptions about how the <span style="color: #FF1493;">factors</span> are distributed, we can bound the error of Varimax's estimates. Specifically, the distance between the estimated <span style="color: #FF1493;">factor model</span> $\hat{X}$ and the <span style="color: #800000;">true factors (up to signed permutations)</span> $XP_n$ is bounded by $O_p(\Delta_n^{-0.24}\log^{3.75} n)$ where this bound involves the mean of the data scaled by the sample size. While this theoretical guarantee might sound promising, practical applications often reveal limitations of the method.</p>
+    </div>
+</div>
 
 <p>Are there <span style="color: #8A2BE2; font-weight: bold;">better alternatives?</span> One promising approach is <span style="color: #20B2AA; font-weight: bold;">subspace clustering</span>, which aims to recover a <span style="font-weight: bold;">union of subspaces</span> that capture <span style="font-weight: bold;">most of the data's information</span>. Our problem fits naturally into this framework as a special case, where we're looking for $k$ different 1-dimensional subspaces that represent our <span style="color: #FF1493;">factors</span>. This approach has proven particularly valuable in computer vision applications, as demonstrated by Vidal's work in 2011.</p>
 
 <p>However, <span style="color: #8A2BE2; font-weight: bold;">subspace clustering comes with several significant challenges</span>. First and foremost, most existing methods <span style="color: #8B0000;">lack robustness</span>. Even the most sophisticated solution to date - the <span style="color: #20B2AA; font-weight: bold">Robust subspace clustering</span> approach developed by Soltanolkotabi in 2014 - has its drawbacks. It requires <span style="color: #8B0000;">constructing an $n^2$ similarity matrix</span> and then <span style="color: #8B0000;">extracting the top-$k$ eigenvalues</span> in a second stage, making it computationally intensive. Moreover, since the subspaces aren't required to be orthogonal to each other, this approach might allow <span style="color: #FF1493;">factors to correlate</span>, which isn't always desirable.</p>
 
 <p>This brings us to the question of the day: <span style="color: #20B2AA;">Can we develop a method that's both scalable and statistically robust?</span> The answer is <span style="font-weight: bold;">yes!</span> This is where we introduce <span style="color: #00008B; font-weight: bold;">Geometric Factor Analysis (GFA)</span>, a novel approach that addresses these limitations.</p>
-            
+<div class="figure-container">
+    <img src="images/PCvVarimaxvOurs.png" alt="Geometric Factor Analysis">
+    <p class="figure-caption">Figure 2. Methodological framework showing the integration of geometric principles.</p>
+</div>            
+
         </div>
 
         <div class="subsection">
-            <h2>Project Overview</h2>
-            <p><span style="color: #20B2AA; font-weight: bold;">Idea:</span> The data is close to being <span style="font-weight: bold;">supported on a cross</span></p>
+            <h2>Method</h2>
 
-            <p><span style="color: #20B2AA;">Let's find the closest distribution with that property!</span></p>
-
-            <p>Considering<br>
-            $\mathscr{P}_\times = \{\text{probability distributions supported on a cross with }k\text{ factors}\}$,<br>
-            we pursue solving</p>
-
-            <p>$\min_{\nu\in\mathscr{P}_\times} W_2^2(\mu,\nu)$</p>
-
-            <p>In principle, this is an <span style="font-weight: bold;">infinite-dimensional</span> problem,<br>
-            BUT...</p>
+            <p><span style="color: #20B2AA; font-weight: bold;">Our key idea</span> stems from a fundamental observation: the data appears to be <span style="font-weight: bold;">supported on a cross</span>. Given this insight, let's pursue an elegant solution - finding the distribution that best matches this property.</p>
+            
+            <p>To formalize this approach, we consider the set</p> 
+            
+            $$\mathscr{P}_\times = \{\text{probability distributions supported on a cross with }k\text{ factors}\}$$ 
+            
+            <p>Our objective then becomes solving the optimization problem:</p>
+            
+            $$\min_{\nu\in\mathscr{P}_\times} W_2^2(\mu,\nu)$$
+            
+            <p>While this formulation initially presents itself as an <span style="font-weight: bold;">infinite-dimensional</span> problem, we can cleverly reduce it to something more manageable.</p>
+            
+            <p><span style="color: #8A2BE2; font-weight: bold;">Through a careful reduction to finite dimension</span>, we can reformulate our problem using the Stiefel manifold $St(d,k) := \{U \in \mathbb{R}^{d\times k}: U^\top U = I_{k\times k}\}$. This allows us to express our objective equivalently as:</p>
+            
+            $$\min_{U\in St(d,k)} W_2^2(\mu, P_U\#\mu)$$
+            
+            <p>In practice, since we work with finite samples $x_1,\ldots,x_n$ drawn independently from distribution $\mu$, our problem takes the concrete form:</p>
+            
+            $$\min_{U\in St(d,k)} \sum_{i=1}^n \|X_i - \Pi_{X_U}(X_i)\|^2$$
+            
+            <p>This formulation naturally leads us to an interesting question: <span style="color: #20B2AA;">how do we effectively optimize over this manifold?</span></p>
+                
             <div class="figure-container">
-                <img src="/api/placeholder/600/300" alt="Methodology Diagram">
+                <img src="images/WFA1_axis_sum.png" alt="Methodology">
                 <p class="figure-caption">Figure 2. Methodological framework showing the integration of geometric principles.</p>
             </div>
-            <p><span style="color: #8A2BE2; font-size: larger; font-weight: bold;">Reduction to finite dimension</span></p>
-
-            <p>Let's consider instead<br>
-            $St(d,k) := \{U \in \mathbb{R}^{d\times k}: U^\top U = I_{k\times k}\}$ and equivalently<br>
-            formulate</p>
-
-            <p>$\min_{U\in St(d,k)} W_2^2(\mu, P_U\#\mu)$</p>
-
-            <p>As we've seen, in practice, we are given $x_1,\ldots,x_n \sim \mu$<br>
-            i.i.d., so... we aim to solve</p>
-
-            <p><span style="border: 2px solid #20B2AA; padding: 5px;">$\min_{U\in St(d,k)} \sum_{i=1}^n \|X_i - \Pi_{X_U}(X_i)\|^2$</span></p>
-
-            <p><span style="color: #20B2AA;">↪ Optimize on a manifold?</span></p>
-
         </div>
 
         <div class="subsection">
-            <h2>Methodology</h2>
+            <h2>Theoretical Results</h2>
             <p>We develop a comprehensive framework that combines differential geometry with statistical learning theory. Our approach incorporates manifold learning techniques while preserving the intrinsic geometric structure of the data.</p>
         </div>
 
         <div class="subsection">
-            <h2>Results</h2>
+            <h2>Numerical Results</h2>
             <p>Our experiments demonstrate significant improvements in both accuracy and interpretability. The geometric constraints provide natural regularization, leading to more stable and meaningful factor solutions.</p>
             
             <div class="figure-container">
@@ -323,7 +333,17 @@ $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left
         </div>
 
         <div class="subsection">
-            <h2>Related Publications</h2>
+            <h2>Real-world Data Applications</h2>
+            <p>Our experiments demonstrate significant improvements in both accuracy and interpretability. The geometric constraints provide natural regularization, leading to more stable and meaningful factor solutions.</p>
+            
+            <div class="figure-container">
+                <img src="/api/placeholder/700/350" alt="Results Comparison">
+                <p class="figure-caption">Figure 3. Comparative analysis of traditional vs. geometric factor analysis results.</p>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h2>References</h2>
             <p>Smith, J., et al. (2024). "Geometric Factor Analysis: A Novel Approach to Understanding High-Dimensional Data Structures." Journal of Statistical Computing.<br><br>
             Johnson, M., et al. (2023). "Applications of Geometric Factor Analysis in Biological Systems." Proceedings of the International Conference on Machine Learning.</p>
         </div>
