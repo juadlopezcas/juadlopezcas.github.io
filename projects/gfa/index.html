@@ -327,14 +327,11 @@ $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left
                 <p>(ii) $U^*$ is a local minimizer of $\mathscr{E}(U)$, and</p>
                 <p>(iii) in a neighborhood $N \subseteq St(d, k)$ around $U^*$, $\mathscr{E}(U)$ is strongly convex!</p>
             </div>
-            <p>But that's not all. The story gets even better when we look at the Hessian:</p>
-            <div style="display: flex; align-items: center; gap: 20px; margin: 20px 0;">
+            <p>The story gets even more interesting when we look at the Hessian:</p>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin: 20px 0;">
                 <p>$L \text{ Id} \succeq \text{Hess}(\mathscr{E}(U)) \succeq m \text{ Id} \text{ in } N$</p>
-                <div style="display: flex; align-items: center;">
-                    <span style="color: #20B2AA; font-size: 24px;">↪</span>
-                    <span style="border: 2px solid #20B2AA; padding: 5px 10px; color: #20B2AA; font-weight: bold; border-radius: 5px;">Linear Convergence!</span>
-                </div>
             </div>
+            <p>These bounds on the Hessian reveal something powerful: because the Riemannian Hessian is bounded both above and below in the positive semidefinite order, we get two crucial properties. First, we have geodesic strong convexity (from the lower bound), and second, we have $L$-Lipschitz Riemannian gradients (from the upper bound). Together, these properties guarantee <span style="color: #20B2AA; font-weight: bold;">linear convergence</span> when we work in a geodesically convex chart where geodesic strong convexity holds.</p>
             <p>What do these theoretical guarantees mean in practice? Our experiments reveal two key features:</p>
             <div style="display: flex; gap: 20px; align-items: center; margin: 20px 0;">
                 <!-- Left side - Plot -->
@@ -391,7 +388,7 @@ $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left
             <div style="border: 2px solid #20B2AA; padding: 15px; margin-bottom: 20px;">
                 <p><span style="color: #20B2AA; font-size: larger; font-weight: bold;">Proposition:</span></p>
                 <p>Under the assumption that there exists $\mu \in \mathscr{P}_2(\mathbb{R}^d)$ and $U^* \in O(d)$ such that $W_2^2(\mu, P_{U^*}\#\mu) \leq \epsilon$ for some fixed $\epsilon > 0$, we can prove that:</p>
-                <p style="text-align: center;">$\mathbb{E}(W_2^2(\mu, \mu_n)) \leq 6\epsilon + 3d^tn^{-1}$</p>
+                <p style="text-align: center;">$\mathbb{E}(W_2^2(\mu, \mu_n)) \leq 6\epsilon + 3d^2 n^{-1}$</p>
             </div>
             <p>Why is this result important? Our <span style="color: #FF1493; font-weight: bold;">goal</span> is to recover the cross structure from data by finding $U_n \in \text{argmin}_{U\in O(d)}W_2^2(\mu_n, P_U\#\mu_n)$. The key is to <span style="font-weight: bold;">connect</span> <span style="color: #32CD32;">dist$(U_n, U^*)$</span> with $W_2(\mu, \mu_n)$.</p>
             <p>For solutions $U_n$ of our optimization problem, we can show:</p>
@@ -401,7 +398,7 @@ $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left
             <div style="border: 2px solid #20B2AA; padding: 15px; margin-bottom: 20px;">
                 <p><span style="color: #20B2AA; font-size: larger; font-weight: bold;">Theorem</span></p>
                 <p>Putting everything together, for $U_n \in \text{argmin}_{U\in O(d)}W_2^2(\mu_n, P_U\#\mu_n)$, we get:</p>
-                <p style="text-align: center;">$\mathbb{E}(\text{dist}(U_n, U^*)^2) \leq \frac{1}{C_\mu}(16\epsilon + 6d^tn^{-1}$</p>
+                <p style="text-align: center;">$\mathbb{E}(\text{dist}(U_n, U^*)^2) \leq \frac{1}{C_\mu}(16\epsilon + 6d^2n^{-1})$</p>
             </div>
             <div style="display: flex; gap: 20px; align-items: center; margin: 20px 0;">
                 <div style="flex: 1; display: flex; justify-content: center;">
