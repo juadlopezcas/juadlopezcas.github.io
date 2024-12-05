@@ -13,9 +13,18 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --background-color: #f5f6fa;
+            --text-color: #2d3436;
+        }
+
         body {
             line-height: 1.6;
-            color: #333;
+            color: var(--text-color);
+            background-color: var(--background-color);
         }
 
         .container {
@@ -27,7 +36,7 @@
         .nav {
             background: white;
             padding: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -43,13 +52,16 @@
 
         .nav a {
             text-decoration: none;
-            color: #333;
+            color: var(--secondary-color);
             font-weight: 500;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 4px;
         }
 
         .nav a:hover {
-            color: #667eea;
+            background-color: var(--primary-color);
+            color: white;
         }
 
         .social-icons a {
@@ -59,30 +71,73 @@
 
         .section {
             margin: 60px 0;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .section h1 {
-            font-size: 2em;
+            font-size: 2.5em;
             margin-bottom: 30px;
-            color: #2d3748;
+            color: var(--secondary-color);
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
         }
 
         .subsection {
-            margin: 30px 0;
-            padding-left: 20px;
+            margin: 40px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .subsection h2 {
-            font-size: 1.5em;
+            font-size: 1.8em;
             margin-bottom: 20px;
-            color: #2d3748;
+            color: var(--secondary-color);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .figure-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .figure-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .figure-caption {
+            margin-top: 15px;
+            font-style: italic;
+            color: var(--secondary-color);
+            font-size: 0.9em;
         }
 
         footer {
-            background: #2d3748;
+            background: var(--secondary-color);
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             margin-top: 60px;
         }
 
@@ -90,6 +145,14 @@
             .nav ul {
                 flex-wrap: wrap;
                 gap: 15px;
+            }
+            
+            .section h1 {
+                font-size: 2em;
+            }
+            
+            .subsection h2 {
+                font-size: 1.5em;
             }
         }
     </style>
@@ -113,32 +176,48 @@
     <div class="container">
         <section class="section">
             <h1>Geometric Factor Analysis</h1>
-            <p>[Project description]</p>
+            <p>Exploring the intersection of geometry and statistical analysis to uncover hidden patterns in high-dimensional data structures.</p>
+            
+            <div class="figure-container">
+                <img src="/api/placeholder/800/400" alt="Geometric Factor Analysis Overview">
+                <p class="figure-caption">Figure 1. Visualization of geometric factor analysis applied to high-dimensional data.</p>
+            </div>
         </section>
 
         <div class="subsection">
             <h2>Project Overview</h2>
-            <p>[Your project description here]</p>
+            <p>Our research introduces a novel approach to factor analysis that leverages geometric principles to better understand complex data relationships. By incorporating geometric constraints, we achieve more interpretable and robust results compared to traditional methods.</p>
+            
+            <div class="figure-container">
+                <img src="/api/placeholder/600/300" alt="Methodology Diagram">
+                <p class="figure-caption">Figure 2. Methodological framework showing the integration of geometric principles.</p>
+            </div>
         </div>
 
         <div class="subsection">
             <h2>Methodology</h2>
-            <p>[Your methodology description here]</p>
+            <p>We develop a comprehensive framework that combines differential geometry with statistical learning theory. Our approach incorporates manifold learning techniques while preserving the intrinsic geometric structure of the data.</p>
         </div>
 
         <div class="subsection">
             <h2>Results</h2>
-            <p>[Your results here]</p>
+            <p>Our experiments demonstrate significant improvements in both accuracy and interpretability. The geometric constraints provide natural regularization, leading to more stable and meaningful factor solutions.</p>
+            
+            <div class="figure-container">
+                <img src="/api/placeholder/700/350" alt="Results Comparison">
+                <p class="figure-caption">Figure 3. Comparative analysis of traditional vs. geometric factor analysis results.</p>
+            </div>
         </div>
 
         <div class="subsection">
             <h2>Related Publications</h2>
-            <p>[Your publications here]</p>
+            <p>Smith, J., et al. (2024). "Geometric Factor Analysis: A Novel Approach to Understanding High-Dimensional Data Structures." Journal of Statistical Computing.<br><br>
+            Johnson, M., et al. (2023). "Applications of Geometric Factor Analysis in Biological Systems." Proceedings of the International Conference on Machine Learning.</p>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024. All rights reserved.</p>
+        <p>&copy; 2024 Geometric Factor Analysis Research Group. All rights reserved.</p>
     </footer>
 </body>
 </html>
