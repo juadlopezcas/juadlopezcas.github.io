@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geometric Factor Analysis</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <!-- Add MathJax Support -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                displayMath: [['$$','$$'], ['\\[','\\]']],
+                processEscapes: true
+            }
+        });
+    </script>
     <style>
         * {
             margin: 0;
@@ -132,6 +143,12 @@
             color: var(--secondary-color);
             font-size: 0.9em;
         }
+        .equation-container {
+            margin: 2em 0;
+            text-align: center;
+            overflow-x: auto;
+            padding: 1em;
+        }
 
         footer {
             background: var(--secondary-color);
@@ -178,6 +195,12 @@
             <h1>Geometric Factor Analysis</h1>
             <p>Exploring the intersection of geometry and statistical analysis to uncover hidden patterns in high-dimensional data structures.</p>
             
+            <div class="equation-container">
+                <p>The geometric factor analysis model can be expressed as:</p>
+                $$X = UDV^T + E$$
+                <p>where $X \in \mathbb{R}^{n \times p}$ is the data matrix, $U$ and $V$ are orthogonal matrices, $D$ is diagonal, and $E$ represents the error term.</p>
+            </div>
+
             <div class="figure-container">
                 <img src="/api/placeholder/800/400" alt="Geometric Factor Analysis Overview">
                 <p class="figure-caption">Figure 1. Visualization of geometric factor analysis applied to high-dimensional data.</p>
@@ -217,7 +240,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Geometric Factor Analysis Research Group. All rights reserved.</p>
+        <p>&copy; 2024 Daniel López-Castaño. All rights reserved.</p>
     </footer>
 </body>
 </html>
