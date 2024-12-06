@@ -319,7 +319,8 @@ $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left
         <div class="subsection">
         <h2>Optimization Guarantees</h2>
             <p><span style="color: #20B2AA; font-size: larger;">Assumption:</span></p>
-            <p>Let's start with a precise technical setup: we consider $\mu \in \mathscr{P}_{2,ac}(\mathbb{R}^d)$ as a convolved measure $\mu = \nu \star \tau\Phi$, where both $\nu$ and $\Phi$ belong to $\mathscr{P}_2(\mathbb{R}^d)$. What makes this interesting is that $\nu$ is supported on the span of $(U_i^*)_{i,...,k}$ for some $U^* \in St(d, k)$, and $\Phi$ has the special property of being isotropic.</p>
+            <p>Let's start with a precise technical setup: we consider $\mu \in \mathscr{P}_{2,ac}(\mathbb{R}^d)$ as a convolved measure $\mu = \nu \star \tau\Phi$, 
+                where $\nu,\Phi$ belong to $\mathscr{P}_2(\mathbb{R}^d)$, $\nu$ is supported on the cross $\bigtime_U:=\bigcup_{i=1}^{k}\text{span}\{U_{i}^{*}\}$ for some $U^* \in St(d, k)$, and $\Phi$ is isotropic.</p>
             <div style="border: 2px solid #20B2AA; padding: 15px; margin: 15px 0;">
                 <p><span style="color: #20B2AA; font-size: larger;">Theorem:</span></p>
                 <p>Under these conditions, we get three powerful guarantees:</p>
