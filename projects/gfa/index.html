@@ -260,7 +260,7 @@
 
 $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left([\Lambda R]_{ij}^4 - \left(\frac{1}{d}\sum_{l=1}^d[\Lambda R]_{li}^2\right)^2\right)$$
 
-<p><span style="color: #008080;">where $\Lambda = \text{PC}$.</span><span style="color: #800000; font-weight: bold;">The intuition</span> behind this approach is that by fitting to the fourth moment, we can capture more complex relationships in the data than traditional PCA, which only considers second moments.</p>
+<p><span style="color: #008080;">where $\Lambda$ corresponds to the principal components.</span><span style="color: #800000; font-weight: bold;"> The intuition</span> behind this approach is that by fitting to the fourth moment, we can capture more complex relationships in the data than traditional PCA, which only considers second moments.</p>
 
 <div style="display: flex; gap: 20px; align-items: center; margin: 20px 0;">
     <!-- Left column - Image -->
@@ -270,18 +270,20 @@ $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left
     
     <!-- Right column - Text -->
     <div style="flex: 1;">
-        <p>But <span style="color: #8A2BE2; font-weight: bold;">how well does Varimax actually perform?</span> Recent theoretical work by <span style="color: #20B2AA; font-weight: bold;">Rohe (2022)</span> provides some answers. Under <span style="text-decoration: underline;">several</span> assumptions about how the <span style="color: #FF1493;">factors</span> are distributed, we can bound the error of Varimax's estimates. Specifically, the distance between the estimated <span style="color: #FF1493;">factor model</span> $\hat{X}$ and the <span style="color: #800000;">true factors (up to signed permutations)</span> $XP_n$ is bounded by $O_p(\Delta_n^{-0.24}\log^{3.75} n)$ where this bound involves the mean of the data scaled by the sample size. While this theoretical guarantee might sound promising, practical applications often reveal limitations of the method.</p>
+        <p>But <span style="color: #8A2BE2; font-weight: bold;">how well does Varimax actually perform?</span> Recent theoretical work by <span style="color: #20B2AA; font-weight: bold;">Rohe (2022)</span> provides some answers. Under <span style="text-decoration: underline;">several</span> assumptions about how the <span style="color: #FF1493;">factors</span> are distributed, we can bound the error of Varimax's estimates. Specifically, the distance between the estimated <span style="color: #FF1493;">factor model</span> $\hat{X}$ and the <span style="color: #800000;">true factors (up to signed permutations)</span> $XP_n$ is bounded by $O_p(\Delta_n^{-0.24}\log^{3.75} n)$ where this bound involves the mean of the data scaled by the sample size. While this theoretical guarantee might sound promising, practical applications often reveal limitations of the method, as we see in the plot of th left.</p>
     </div>
 </div>
 
 <p>Are there <span style="color: #8A2BE2; font-weight: bold;">better alternatives?</span> One promising approach is <span style="color: #20B2AA; font-weight: bold;">subspace clustering</span>, which aims to recover a <span style="font-weight: bold;">union of subspaces</span> that capture <span style="font-weight: bold;">most of the data's information</span>. Our problem fits naturally into this framework as a special case, where we're looking for $k$ different 1-dimensional subspaces that represent our <span style="color: #FF1493;">factors</span>. This approach has proven particularly valuable in computer vision applications, as demonstrated by Vidal's work in 2011.</p>
-
-<p>However, <span style="color: #8A2BE2; font-weight: bold;">subspace clustering comes with several significant challenges</span>. First and foremost, most existing methods <span style="color: #8B0000;">lack robustness</span>. Even the most sophisticated solution to date - the <span style="color: #20B2AA; font-weight: bold">Robust subspace clustering</span> approach developed by Soltanolkotabi in 2014 - has its drawbacks. It requires <span style="color: #8B0000;">constructing an $n^2$ similarity matrix</span> and then <span style="color: #8B0000;">extracting the top-$k$ eigenvalues</span> in a second stage, making it computationally intensive. Moreover, since the subspaces aren't required to be orthogonal to each other, this approach might allow <span style="color: #FF1493;">factors to correlate</span>, which isn't always desirable.</p>
+<div class="figure-container">
+    <img src="images/subspaces.png" alt="Subspace Clustering" style="width: 100%; max-width: 400px">
+    <p class="figure-caption">Subspace clustering aims to reveal the inherent structure of data located in the union of subspaces.</p>
+</div>  
+<p>However, <span style="color: #8A2BE2; font-weight: bold;">subspace clustering comes with several significant challenges</span>. First and foremost, most existing methods <span style="color: #8B0000;">lack robustness</span>. Even the most known (or used) solution to date - the <span style="color: #20B2AA; font-weight: bold">Robust subspace clustering</span> approach developed by Soltanolkotabi in 2014 - has its drawbacks. It requires <span style="color: #8B0000;">constructing an $n^2$ similarity matrix</span> and then <span style="color: #8B0000;">extracting the top-$k$ eigenvalues</span> in a second stage, making it computationally intensive. Moreover, since the subspaces aren't required to be orthogonal to each other, this approach might allow <span style="color: #FF1493;">factors to correlate</span>, which isn't always desirable.</p>
 
 <p>This brings us to the question of the day: <span style="color: #20B2AA;">Can we develop a method that's both scalable and statistically robust?</span> The answer is <span style="font-weight: bold;">yes!</span> This is where we introduce <span style="color: #00008B; font-weight: bold;">Geometric Factor Analysis (GFA)</span>, a novel approach that addresses these limitations.</p>
 <div class="figure-container">
     <img src="images/PCvVarimaxvOurs.png" alt="Geometric Factor Analysis">
-    <p class="figure-caption">Figure 2. Methodological framework showing the integration of geometric principles.</p>
 </div>            
 
         </div>
@@ -301,7 +303,7 @@ $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left
             
             <p>While this formulation initially presents itself as an <span style="font-weight: bold;">infinite-dimensional</span> problem, we can cleverly reduce it to something more manageable.</p>
             
-            <p><span style="color: #8A2BE2; font-weight: bold;">Through a careful reduction to finite dimension</span>, we can reformulate our problem using the Stiefel manifold $St(d,k) := \{U \in \mathbb{R}^{d\times k}: U^\top U = I_{k\times k}\}$. This allows us to express our objective equivalently as:</p>
+            <p><span style="color: #8A2BE2; font-weight: bold;">A clever reduction to finite dimension</span> can be by reformulating our problem using the Stiefel manifold $St(d,k) := \{U \in \mathbb{R}^{d\times k}: U^\top U = I_{k\times k}\}$. This is by expressing our objective equivalently as:</p>
             
             $$\min_{U\in St(d,k)} W_2^2(\mu, P_U\#\mu)$$
             
@@ -332,8 +334,8 @@ $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left
             <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin: 20px 0;">
                 <p>$L \text{ Id} \succeq \text{Hess}(\mathscr{E}(U)) \succeq m \text{ Id} \text{ in } N$</p>
             </div>
-            <p>These bounds on the Hessian reveal something insightful: because the Riemannian Hessian is bounded both above and below in the positive semidefinite order, we get two crucial properties. First, we have geodesic strong convexity (from the lower bound), and second, we have $L$-Lipschitz Riemannian gradients (from the upper bound). Together, these properties guarantee <span style="color: #20B2AA; font-weight: bold;">linear convergence</span> when we work in a geodesically convex chart where geodesic strong convexity holds.</p>
-            <p>What do these theoretical guarantees mean in practice? Our experiments reveal two key features:</p>
+            <p>Because the Riemannian Hessian is bounded both above and below in the positive semidefinite order, we get two crucial properties. First, we have geodesic strong convexity (from the lower bound), and second, we have $L$-Lipschitz Riemannian gradients (from the upper bound). Together, these properties guarantee <span style="color: #20B2AA; font-weight: bold;">linear convergence</span> when we work in a geodesically convex chart where geodesic strong convexity holds.</p>
+            <p>What do these theoretical guarantees mean in practice? </p>
             <div style="display: flex; gap: 20px; align-items: center; margin: 20px 0;">
                 <!-- Left side - Plot -->
                 <div style="flex: 1; display: flex; justify-content: center;">
@@ -486,7 +488,7 @@ $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left
         <div class="subsection">
             <h2>References</h2>
             
-                Lopez-Castaño, D., Yang, C., Diaz, M., & García-Trillos, N. (2024). Geometric Factor Analysis. <em>In preparation</em>.<br></br>
+                Diaz, M., García-Trillos, N., Lopez-Castaño, D., & Yang, C. (2024). Geometric Factor Analysis. <em>In preparation</em>.<br></br>
                 
                 Rohe, K., & Zeng, M. (2023). Vintage factor analysis with Varimax performs statistical inference. <em>Journal of the Royal Statistical Society Series B: Statistical Methodology</em>, 85(4), 1019-1043.
             
