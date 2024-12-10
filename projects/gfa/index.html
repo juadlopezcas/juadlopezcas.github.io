@@ -386,7 +386,7 @@ $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left
                 <p>$x_1, \ldots, x_n \sim \mu \qquad \longrightarrow \qquad \mu_n = \frac{1}{n}\sum_i \delta_{x_i}$</p>
                 <p>$y_1, \ldots, y_n \sim \nu \qquad \longrightarrow \qquad \nu_n = \frac{1}{n}\sum_i \delta_{y_i}$</p>
             </div>
-            <p>This leads to some intriguing questions: Can we trust that $W_2(\mu_n, \nu_n)$ approximates $W_2(\mu, \nu)$? Unfortunately, the answer is generally <span style="font-weight: bold;">no</span>. When we try to estimate $\mu$ through $W_2(\mu, \mu_n)$, we run into a serious <span style="color: red; font-weight: bold;">issue</span>: for measures absolutely continuous with respect to Lebesgue measure, we get the discouraging bound $W_2(\mu, \mu_n) \gtrsim n^{-1/d}$ almost surely!</p>
+            <p>This leads to some questions: Can we trust that $W_2(\mu_n, \nu_n)$ approximates $W_2(\mu, \nu)$? Unfortunately, the answer is generally <span style="font-weight: bold;">no</span>. When we try to estimate $\mu$ through $W_2(\mu, \mu_n)$, we run into a serious <span style="color: red; font-weight: bold;">issue</span>: for measures absolutely continuous with respect to Lebesgue measure, we get the discouraging bound $W_2(\mu, \mu_n) \gtrsim n^{-1/d}$ almost surely!</p>
             <p>But here's the exciting part: can we escape this curse of dimensionality by <span style="color: #FF1493;">adding more structure</span> to our problem? The answer is <span style="color: #20B2AA; font-weight: bold;">yes</span>!</p>
             <div style="border: 2px solid #20B2AA; padding: 15px; margin-bottom: 20px;">
                 <p><span style="color: #20B2AA; font-size: larger; font-weight: bold;">Proposition:</span></p>
@@ -394,13 +394,13 @@ $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left
                 <p style="text-align: center;">$\mathbb{E}(W_2^2(\mu, \mu_n)) \leq 6\epsilon + 3d^2 n^{-1}$</p>
             </div>
             <p>Why is this result important? Our <span style="color: #FF1493; font-weight: bold;">goal</span> is to recover the cross structure from data by finding $U_n \in \text{argmin}_{U\in O(d)}W_2^2(\mu_n, P_U\#\mu_n)$. The key is to <span style="font-weight: bold;">connect</span> <span style="color: #32CD32;">dist$(U_n, U^*)$</span> with $W_2(\mu, \mu_n)$.</p>
-            <p>For solutions $U_n$ of our optimization problem, we can show:</p>
+            <p>For solutions $U_n$, we can show:</p>
             <p style="text-align: center;">
                 $\mathbb{E}(\text{dist}(U_n, U^*)^2) \leq \frac{2}{C_\mu}\mathbb{E}(W_2^2(P_{U^*}\#\mu, P_{U_n}\#\mu)) \leq \frac{2}{C_\mu}(2\epsilon + \mathbb{E}(W_2^2(\mu, \mu_n)))$
             </p>
             <div style="border: 2px solid #20B2AA; padding: 15px; margin-bottom: 20px;">
                 <p><span style="color: #20B2AA; font-size: larger; font-weight: bold;">Theorem</span></p>
-                <p>Putting everything together, for $U_n \in \text{argmin}_{U\in O(d)}W_2^2(\mu_n, P_U\#\mu_n)$, we get:</p>
+                <p>Under the assumptions of the previous proporsition, for $U_n \in \text{argmin}_{U\in O(d)}W_2^2(\mu_n, P_U\#\mu_n)$, we get:</p>
                 <p style="text-align: center;">$\mathbb{E}(\text{dist}(U_n, U^*)^2) \leq \frac{1}{C_\mu}(16\epsilon + 6d^2n^{-1})$</p>
             </div>
             <div style="display: flex; gap: 20px; align-items: center; margin: 20px 0;">
@@ -433,7 +433,7 @@ $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left
         </div>
     </div>
 </div>
-<p>To give this challenge mathematical precision, we organize our measurements into vector fields and study their relationships through covariance:</p>
+<p>To give this challenge a mathematical precision, we organize our measurements into vector fields and study their relationships through covariance:</p>
         <p style="text-align: center;">$X = [X_1,\ldots,X_d]^\top$, with $X_i = [x_{t1},\ldots,x_{td}]$ $\implies$ $\text{Cov}(X) = \mathbb{E}XX^\top$</p>
 <div style="display: flex; gap: 20px; align-items: center; margin: 20px 0;">
     <!-- Left side - Two plots -->
