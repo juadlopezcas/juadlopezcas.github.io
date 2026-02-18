@@ -343,13 +343,13 @@ $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left
                 </div>
                 <!-- Right side - Text -->
                 <div style="flex: 1;">
-                    <p>First, we see a <span style="color: #32CD32; font-weight: bold;">rapid initial decay</span> - the algorithm quickly reduces errors near its starting point. Second, and perhaps more impressively, this performance stays <span style="color: #32CD32; font-weight: bold;">consistent</span> regardless of how many data points we're working with.</p>
+                    <p>First, we see a <span style="color: #32CD32; font-weight: bold;">rapid initial decay</span> - the algorithm quickly reduces errors near its initialization. Second, and perhaps more impressively, this performance stays <span style="color: #32CD32; font-weight: bold;">consistent</span> regardless of how many data points we're working with.</p>
                 </div>
             </div>
             <div style="display: flex; gap: 20px; align-items: center; margin: 20px 0;">
                 <!-- Left side - Text -->
                 <div style="flex: 1;">
-                    <p>The real advantage becomes clear when we look at computational efficiency. Our method outperforms <span style="color: #20B2AA; font-weight: bold;">robust subspace clustering</span> significantly. As we scale up to higher dimensions, our algorithm maintains a gentle, <span style="font-weight: bold;">linear increase</span> in computation time, while the traditional approach struggles with an <span style="color: #8B0000; font-weight: bold;">exponential growth</span> in processing time. This makes our method particularly valuable for handling high-dimensional data efficiently.</p>
+                    <p>A second real advantage becomes clear when we look at computational efficiency. Our method outperforms <span style="color: #20B2AA; font-weight: bold;">robust subspace clustering</span> significantly. As we scale up to higher dimensions, our algorithm maintains a gentle, <span style="font-weight: bold;">linear increase</span> in computation time, while the traditional approach struggles with an <span style="color: #8B0000; font-weight: bold;">exponential growth</span> in processing time. This makes our method particularly valuable for handling high-dimensional data efficiently.</p>
                 </div>
                 <!-- Right side - Plots -->
                 <div style="flex: 1; display: flex; flex-direction: column; gap: 10px;">
@@ -400,7 +400,7 @@ $$R^\star \in \text{argmax}_{R\in O(k)}\sum_{j=1}^k \frac{1}{d}\sum_{i=1}^d\left
             </p>
             <div style="border: 2px solid #20B2AA; padding: 15px; margin-bottom: 20px;">
                 <p><span style="color: #20B2AA; font-size: larger; font-weight: bold;">Theorem</span></p>
-                <p>Under the assumptions of the previous proporsition, for $U_n \in \text{argmin}_{U\in O(d)}W_2^2(\mu_n, P_U\#\mu_n)$, we get:</p>
+                <p>Under the assumptions of the previous proposition, for $U_n \in \text{argmin}_{U\in O(d)}W_2^2(\mu_n, P_U\#\mu_n)$, we get:</p>
                 <p style="text-align: center;">$\mathbb{E}(\text{dist}(U_n, U^*)^2) \leq \frac{1}{C_\mu}(16\epsilon + 6d^2n^{-1})$</p>
             </div>
             <div style="display: flex; gap: 20px; align-items: center; margin: 20px 0;">

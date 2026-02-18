@@ -1,272 +1,914 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Lopez-Castaño - Website</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            line-height: 1.6;
-            color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daniel López-Castaño</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <style>
+    :root {
+      --grad-a: #89a4f5;
+      --grad-b: #b07fd4;
+      --accent: #7b6fd4;
+      --text: #1a1a2e;
+      --muted: #5a5a7a;
+      --rule: #d8d8e8;
+      --bg: #fafaf9;
+    }
 
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
-        .header h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+    /* ── BANNER ── */
+    .banner {
+      background: linear-gradient(130deg, var(--grad-a) 0%, var(--grad-b) 100%);
+      padding: 48px 24px 40px;
+    }
 
-        .nav {
-            background: white;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+    .banner-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
 
-        .nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            align-items: center;
-        }
+    .avatar-wrap {
+      flex-shrink: 0;
+      width: 200px;
+      border: 3px solid rgba(255,255,255,0.7);
+      border-radius: 6px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: rgba(255,255,255,0.6);
+    }
 
-        .nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+    .avatar-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
-        .nav a:hover {
-            color: #667eea;
-        }
+    .banner-info { color: #fff; }
 
-        .social-icons a {
-            font-size: 1.5em;
-            margin: 0 10px;
-        }
+    .banner-info h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
 
-        .section {
-            margin: 60px 0;
-        }
+    .banner-info .tagline {
+      font-size: 1rem;
+      font-weight: 300;
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
 
-        .section h2 {
-            font-size: 2em;
-            margin-bottom: 30px;
-            color: #2d3748;
-        }
+    .banner-meta {
+      font-size: 0.88rem;
+      opacity: 0.82;
+    }
 
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+    .banner-icons {
+      margin-top: 16px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
 
-        .project-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
+    .banner-icons a {
+      color: rgba(255,255,255,0.88);
+      font-size: 1.3rem;
+      transition: color .2s, transform .2s;
+      text-decoration: none;
+    }
+    .banner-icons a:hover { color: #fff; transform: translateY(-2px); }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
+    .cv-link {
+      font-size: 0.82rem !important;
+      font-weight: 500;
+      letter-spacing: .05em;
+      border: 1px solid rgba(255,255,255,.75);
+      padding: 3px 13px;
+      border-radius: 3px;
+      text-decoration: none;
+      color: rgba(255,255,255,0.92) !important;
+    }
+    .cv-link:hover { background: rgba(255,255,255,.15); }
 
-        .project-image {
-            max-width: 250px;
-            height: auto;
-            float: left;
-            margin-right: 20px;
-            margin-bottom: 20px;
-}
+    /* ── TOP NAV ── */
+    .topnav {
+      background: #fff;
+      border-bottom: 1px solid var(--rule);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
 
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .section p, .subsection p {
-            font-size: 1.2em;  /* Increase as needed: 1.2em, 1.3em etc */
-            line-height: 1.8;  /* Improves readability */
-        }
+    .topnav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0;
+    }
 
-        .project-content {
-            padding: 15px;
-        }
+    .topnav ul a {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 14px 20px;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
 
-        .blog-posts {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+    .topnav ul a:hover,
+    .topnav ul a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
 
-        .blog-card {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+    /* ── MAIN CONTENT ── */
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 52px 24px 80px;
+    }
 
-        .blog-date {
-            color: #666;
-            font-size: 0.9em;
-        }
-        
-        .citation {
-            border-left: 3px solid #667eea;
-            padding: 20px;
-            margin: 20px 0;
-            background-color: #f8f9fa;
-            border-radius: 4px;
-        }
+    section { margin-bottom: 56px; }
 
-        .citation-title {
-            font-weight: bold;
-            color: #2d3748;
-            margin-bottom: 10px;
-        }
+    section h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--rule);
+    }
 
-        .citation-author {
-            color: #4a5568;
-            font-style: italic;
-            margin-bottom: 8px;
-        }
+    /* ── ABOUT ── */
+    #about p {
+      font-size: 1.0rem;
+      color: var(--muted);
+    }
 
-        .citation-details {
-            color: #718096;
-            font-size: 0.9em;
-            margin-bottom: 12px;
-        }
+    /* ── BIO ── */
+    #bio p {
+      font-size: 1.0rem;
+      color: var(--muted);
+    }
 
-        .citation-abstract {
-            margin-top: 15px;
-            line-height: 1.6;
-        }
+    /* ── PUBLICATIONS ── */
+    .pub {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .pub:last-of-type { border-bottom: none; }
 
-        .citation-link {
-            display: inline-block;
-            margin-top: 10px;
-            color: #667eea;
-            text-decoration: none;
-        }
+    .pub-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 5px;
+    }
 
-        .citation-link:hover {
-            text-decoration: underline;
-        }
+    .pub-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
 
-        footer {
-            background: #2d3748;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 60px;
-        }
+    .pub-authors {
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 8px;
+    }
 
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.5em;
-            }
+    .pub-abstract {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 10px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease;
+    }
+    .pub-abstract.open { max-height: 400px; }
 
-            .nav ul {
-                flex-wrap: wrap;
-                gap: 15px;
-            }
-        }
-    </style>
+    .pub-links { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+    .pub-link {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      border-radius: 3px;
+      padding: 2px 9px;
+      transition: background .2s, color .2s;
+    }
+    .pub-link:hover { background: var(--accent); color: #fff; }
+
+    .toggle-abstract {
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline dotted;
+      padding: 0;
+    }
+    .toggle-abstract:hover { color: var(--accent); }
+
+    /* ── PROJECTS ── */
+    .project-card {
+      display: flex;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: flex-start;
+    }
+    .project-card:last-of-type { border-bottom: none; }
+
+    .project-thumb {
+      flex-shrink: 0;
+      width: 120px;
+      height: 88px;
+      border-radius: 5px;
+      background: linear-gradient(135deg, var(--grad-a), var(--grad-b));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 2rem;
+      overflow: hidden;
+    }
+    .project-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+    .project-info h3 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.12rem;
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+    .project-info h3 a { color: var(--text); text-decoration: none; }
+    .project-info h3 a:hover { color: var(--accent); }
+
+    .project-info .project-meta {
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .project-info p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── BLOG ── */
+    .blog-card {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .blog-card:last-of-type { border-bottom: none; }
+
+    .blog-card h3 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .blog-card .date {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .blog-card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 6px; }
+    .blog-card a.read-more {
+      font-size: 0.82rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .blog-card a.read-more:hover { text-decoration: underline; }
+
+    /* ── TEACHING ── */
+    .teaching-entry {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .teaching-entry:last-of-type { border-bottom: none; }
+
+    .teaching-entry h3 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.12rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+      color: var(--text);
+    }
+    .teaching-entry .te-meta {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 5px;
+      letter-spacing: 0.04em;
+    }
+    .teaching-entry p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .teaching-entry ul {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 8px;
+      padding-left: 18px;
+    }
+    .teaching-entry ul li { margin-bottom: 6px; }
+    .te-role {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.03em;
+    }
+
+    /* ── TALKS ── */
+    .talk-entry {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      gap: 20px;
+      align-items: baseline;
+    }
+    .talk-entry:last-of-type { border-bottom: none; }
+
+    .talk-year {
+      flex-shrink: 0;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      min-width: 42px;
+    }
+    .talk-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text);
+      font-style: italic;
+      margin-bottom: 2px;
+    }
+    .talk-venue {
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+    .talk-venue .talk-type {
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-right: 6px;
+    }
+    .talk-award {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #c0861e;
+      margin-left: 6px;
+    }
+
+    /* ── TECH STACK ── */
+    .techstack-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin-top: 8px;
+      align-items: center;
+    }
+    .tech-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .tech-item i {
+      font-size: 2.8rem;
+      transition: transform .2s, opacity .2s;
+    }
+    .tech-item:hover i { transform: translateY(-3px); opacity: 0.85; }
+    .tech-item span {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 580px) {
+      .banner-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .banner-info h1 { font-size: 2rem; }
+      .topnav ul { justify-content: flex-start; overflow-x: auto; }
+      .topnav ul a { padding: 12px 12px; font-size: 0.75rem; }
+      .project-card { flex-direction: column; }
+      .project-thumb { width: 100%; height: 140px; }
+      .talk-entry { flex-direction: column; gap: 2px; }
+    }
+  </style>
 </head>
 <body>
-    <header class="header">
-        <h1>Daniel López-Castaño</h1>
-        <p>Applied Mathematician</p>
-    </header>
 
-    <nav class="nav">
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="cv.pdf">CV</a></li>
-            <li class="social-icons">
-                <a href="https://github.com/juadlopezcas" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/daniel-lopez-castano" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </li>
-        </ul>
-    </nav>
+<!-- ── BANNER ── -->
+<header class="banner">
+  <div class="banner-inner">
+    <div class="avatar-wrap">
+      <img src="images/profile.jpeg" alt="Daniel López-Castaño"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+      <i class="fa-solid fa-user" style="display:none"></i>
+    </div>
+    <div class="banner-info">
+      <h1>Daniel López-Castaño</h1>
+      <p class="tagline">Applied Mathematician</p>
+      <div class="banner-meta">Baltimore, MD</div>
+      <div class="banner-icons">
+        <a href="https://github.com/juadlopezcas" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/daniel-lopez-castano" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="docs/cv.pdf" target="_blank" class="cv-link">CV</a>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <div class="container">
-        <section id="about" class="section">
-            <h2>About</h2>
-            <p>I am a Ph.D. Candidate in Applied Mathematics and Statistics at Johns Hopkins University, interested in machine learning, geometric methods for data science and optimal transport. Beyond research, I dedicate time to teaching and mentoring. My interests extend to cycling, artisanal coffee, and anime. Currently seeking opportunities to contribute to open-source initiatives.</p>
-        </section>
+<!-- ── TOP NAV ── -->
+<nav class="topnav">
+  <ul id="site-nav">
+    <a href="#about">About</a>
+    <a href="#bio">Bio</a>
+    <a href="#news">News</a>
+    <a href="#projects">Projects</a>
+    <a href="#blog">Blog</a>
+    <a href="#publications">Publications</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#talks">Talks</a>
+  </ul>
+</nav>
 
-        <section id="projects" class="section">
-            <h2>Projects</h2>
-            <div class="project-card">
-                <a href="/projects/gfa">
-                    <img src="/images/gfa/GFA.png" class="project-image" alt="GFA Project">
-                    <div class="project-content">
-                        <h3>Geometric Factor Analysis</h3>
-                        <p>Uncovering latent factors in data by mapping onto optimized orthogonal reference frames in the Stiefel manifold.</p>
-                    </div>
-                </a>
-            </div>
-        </section>
+<!-- ── CONTENT ── -->
+<div class="container">
 
-        <section id="research" class="section">
-            <h2>Research</h2>
-            <p>Master thesis:</p>
-            <div class="citation">
-                <div class="citation-title">A distributional approach to asymptotics of the Spectral Action</div>
-                <div class="citation-author">López-Castaño, Daniel</div>
-                <div class="citation-details">2020</div>
-                <div class="citation-abstract">
-                    The spectral action, introduced by Chamseddine and Connes in 1997, is the natural and appropriate notion of an action on the space of spectral triples. After presenting key definitions and results from the Cesàro theory of distributions and asymptotic analysis, we discuss the asymptotic expansion of the spectral action in the distributional sense for a commutative spectral triple, following Estrada, Gracia-Bondía, and Várilly.
-                </div>
-                <a href="https://repositorio.unal.edu.co/handle/unal/79294" class="citation-link" target="_blank">View Publication →</a>
-            </div>
-            
-        </section>
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      I am a Ph.D. Candidate in Applied Mathematics and Statistics at Johns Hopkins University,
+      advised by Mateo Díaz and Soledad Villar. My research sits at the intersection of
+      optimal transport, Riemannian optimization, and manifold learning. Beyond research,
+      I dedicate time to teaching and mentoring. My interests extend to
+      cycling, artisanal coffee, and anime/tv-shows. 
+    </p>
+  </section>
 
-        <section id="blog" class="section">
-            <h2>Blog</h2>
-            <div class="blog-posts">
-                <div class="blog-card">
-                    <h3>Blog Post Title</h3>
-                    <p class="blog-date">December 4, 2024</p>
-                    <p>Brief excerpt from your blog post...</p>
-                    <a href="#">Read more</a>
-                </div>
-            </div>
-        </section>
+  <!-- BIO -->
+  <section id="bio">
+    <h2>Bio</h2>
+    <p>
+      I obtained a M.Sc. in Applied Mathematics and Statistics from Johns Hopkins University in 2024, and 
+      a M.Sc. in Mathematics from the Universidad Nacional de Colombia in 2020, where I worked on spectral 
+      geometry and noncommutative geometry under the supervision of Prof. Sylvie Paycha 
+      and Prof. Carolina Neira Jiménez. During the latter, I did a research internship at the Institute fur 
+      Mathematik of the Universität Potsdam. I also worked as a Machine Learning Engineer at Vozy, a Latin 
+      American startup specializing in conversational AI. 
+    </p>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news">
+    <h2>News</h2>
+
+    <div class="blog-card">
+      <div class="date">March 9-13, 2026</div>
+      <h3>Upcoming Course on Geometric Data Science at UNAL Bogota (in Spanish)</h3>
+      <p>Register in the link: <a href="https://ciencias.bogota.unal.edu.co/educacion_continua/cursos_diplomados_eventos/curso-de-pensamiento-geometrico-para-machine-learning-y-ciencias-de-datos/" target="_blank">https://ciencias.bogota.unal.edu.co/educacion_continua/cursos_diplomados_eventos/curso-de-pensamiento-geometrico-para-machine-learning-y-ciencias-de-datos/</a></p>
     </div>
 
-    <footer>
-        <p>&copy; 2024 Daniel López-Castaño. All rights reserved.</p>
-    </footer>
+    <div class="blog-card">
+      <div class="date">December 9-12, 2025</div>
+      <h3>Poster Presentation</h3>
+      <p>Presenting work on estimation of Morse information on manifolds at the Statistics and Data Science Workshop, Universidad de Los Andes.</p>
+    </div>
+
+    <div class="blog-card">
+      <div class="date">May 27 -30, 2025</div>
+      <h3>Optimization and learning: theory and applications, Montreal, Canada.</h3>
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project-card">
+      <div class="project-thumb">
+        <img src="images/gfa/GFA.png" alt="GFA"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+        <i class="fa-solid fa-shapes" style="display:none"></i>
+      </div>
+      <div class="project-info">
+        <h3><a href="projects/gfa">Geometric Factor Analysis</a></h3>
+        <div class="project-meta">Research · 2023 – Present</div>
+        <p>
+          Uncovering latent factors in data by mapping onto optimized orthogonal reference
+          frames in the Stiefel manifold, combining optimal transport with Riemannian
+          optimization to address rotational ambiguity in high-dimensional factor models.
+        </p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb">
+        <img src="images/drone/drone.jpeg" alt="Vision Guided Drone"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+        <i class="fa-solid fa-drone-alt" style="display:none"></i>
+      </div>
+      <div class="project-info">
+        <h3><a href="https://github.com/juadlopezcas/vision-guided-drone/" target="_blank">Vision Guided Drone</a></h3>
+        <div class="project-meta">Mentor · Feb 2025 – May 2025</div>
+        <p>
+          Mentored a team of three high school interns at Johns Hopkins University in developing
+          an autonomous drone navigation system using computer vision and optimization techniques
+          for safe and efficient flight path planning.
+        </p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb">
+        <img src="images/qudost/2_1_histogram.png" alt="Qudost"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+        <i class="fa-solid fa-chart-area" style="display:none"></i>
+      </div>
+      <div class="project-info">
+        <h3><a href="https://github.com/schmidttgenstein/qudost/tree/check_grad" target="_blank">Qudost</a></h3>
+        <div class="project-meta">Research · May 2023 – May 2024</div>
+        <p>
+          Advances density estimation by transforming it into a supervised learning problem,
+          enabling real-time inference via universal approximation. Research conducted at
+          the Johns Hopkins University Applied Physics Laboratory.
+        </p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb">
+        <img src="images/vobio/biometria-voz.avif" alt="VoBio"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+        <i class="fa-solid fa-shapes" style="display:none"></i>
+      </div>
+      <div class="project-info">
+        <h3><a href="https://www.vozy.co/vobio" target="_blank">VoBio</a></h3>
+        <div class="project-meta">Machine Learning Engineer · 2020 – 2021</div>
+        <p>
+          Voice biometrics authentication system developed in PyTorch and TensorFlow, one of
+          the first of its kind deployed for corporate use in Latin America. Integrated into
+          Vozy's client authentication framework with real-time inference capabilities.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <h2>Blog</h2>
+
+    <div class="blog-card">
+      <div class="date">December 4, 2024</div>
+      <h3>Understanding Factor Analysis Through Geometric Lenses</h3>
+      <p>Exploring the intersection of geometry and statistical analysis to uncover hidden patterns in high-dimensional data structures.</p>
+      <a class="read-more" href="#">Read more →</a>
+    </div>
+
+
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <h2>Publications</h2>
+
+    <div class="pub">
+      <div class="pub-label">Master's Thesis · 2020</div>
+      <div class="pub-title">A Distributional Approach to Asymptotics of the Spectral Action</div>
+      <div class="pub-authors">Daniel López-Castaño</div>
+      <div class="pub-abstract" id="abs-1">
+        The spectral action, introduced by Chamseddine and Connes in 1997, is the natural and
+        appropriate notion of an action on the space of spectral triples. After presenting key
+        definitions and results from the Cesàro theory of distributions and asymptotic analysis,
+        we discuss the asymptotic expansion of the spectral action in the distributional sense
+        for a commutative spectral triple, following Estrada, Gracia-Bondía, and Várilly.
+        Research conducted at Universität Potsdam under the supervision of Prof. Sylvie Paycha.
+      </div>
+      <div class="pub-links">
+        <a class="pub-link" href="https://repositorio.unal.edu.co/handle/unal/79294" target="_blank">Publication ↗</a>
+        <button class="toggle-abstract" onclick="toggleAbs('abs-1', this)">show abstract</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- TEACHING -->
+  <section id="teaching">
+    <h2>Teaching</h2>
+
+    <div class="teaching-entry">
+      <h3>Johns Hopkins University</h3>
+      <ul>
+        <li>AMS 625: Machine Learning 2 · Spring 2025 <span class="te-role">(Teaching Assistant)</span></li>
+        <li>AMS 620: Machine Learning 1 · Fall 2024, Fall 2023 <span class="te-role">(Teaching Assistant)</span></li>
+        <li>AMS 660: Nonlinear Optimization 2 · Spring 2024 <span class="te-role">(Teaching Assistant)</span></li>
+        <li>Directed Reading Program · Fall 2024 — Geometry of the Space of Probability Distributions (Mentee: Shayaan Emran) <span class="te-role">(Mentor)</span></li>
+        <li>Directed Reading Program · Spring 2024 — Symmetries and Representations (Mentee: Minjae Kim) <span class="te-role">(Mentor)</span></li>
+        <li>Directed Reading Program · Fall 2023 — Spectral Geometry on Triangles (Mentee: Sukriti Gupta) <span class="te-role">(Mentor)</span></li>
+      </ul>
+    </div>
+
+    <div class="teaching-entry">
+      <h3>Universidad Nacional de Colombia</h3>
+      <ul>
+        <li>Cálculo Diferencial (Calculus 1) · 2018-2, 2019-1 <span class="te-role">(Instructor)</span></li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- TALKS -->
+  <section id="talks">
+    <h2>Talks &amp; Presentations</h2>
+
+    <div class="talk-entry">
+      <div class="talk-year">2025</div>
+      <div class="talk-body">
+        <div class="talk-title">Estimating Morse Information from Samples</div>
+        <div class="talk-venue">
+          <span class="talk-type">Poster</span>
+          Statistics and Data Science Workshop · Universidad de Los Andes, Bogotá, Colombia
+        </div>
+      </div>
+    </div>
+
+    <div class="talk-entry">
+      <div class="talk-year">2024</div>
+      <div class="talk-body">
+        <div class="talk-title">Geometric Factor Analysis
+          <span class="talk-award">★ Runner-up Best Poster</span>
+        </div>
+        <div class="talk-venue">
+          <span class="talk-type">Poster</span>
+          Optimization Workshop · Universidad de Los Andes, Bogotá, Colombia
+        </div>
+      </div>
+    </div>
+
+    <div class="talk-entry">
+      <div class="talk-year">2024</div>
+      <div class="talk-body">
+        <div class="talk-title">Geometric Factor Analysis</div>
+        <div class="talk-venue">
+          <span class="talk-type">Poster</span>
+          SIAM Mathematics of Data Science · Atlanta, GA
+        </div>
+      </div>
+    </div>
+
+    <div class="talk-entry">
+      <div class="talk-year">2023</div>
+      <div class="talk-body">
+        <div class="talk-title">Inference Fast Density Estimation via Universal Approximators</div>
+        <div class="talk-venue">
+          <span class="talk-type">Poster</span>
+          Johns Hopkins AI-X Foundry Fall Symposium · Baltimore, MD
+        </div>
+      </div>
+    </div>
+
+    <div class="talk-entry">
+      <div class="talk-year">2019</div>
+      <div class="talk-body">
+        <div class="talk-title">On Vibrating Strings, Drums and What Can and Cannot Be Heard</div>
+        <div class="talk-venue">
+          <span class="talk-type">Conference</span>
+          Colloquium, Mathematics Department · Universidad Nacional de Colombia, Bogotá
+        </div>
+      </div>
+    </div>
+
+    <div class="talk-entry">
+      <div class="talk-year">2019</div>
+      <div class="talk-body">
+        <div class="talk-title">On the Distributional Asymptotic Expansion of the Spectral Action</div>
+        <div class="talk-venue">
+          <span class="talk-type">Seminar</span>
+          Analysis Group Seminar · Universität Potsdam, Germany
+        </div>
+      </div>
+    </div>
+
+    <div class="talk-entry">
+      <div class="talk-year">2019</div>
+      <div class="talk-body">
+        <div class="talk-title">Sunada's Technique for Constructing Isospectral Manifolds</div>
+        <div class="talk-venue">
+          <span class="talk-type">Short Communication</span>
+          Summer School on L²-Torsion and Symmetric Spaces · Universität Göttingen, Germany
+        </div>
+      </div>
+    </div>
+
+    <div class="talk-entry">
+      <div class="talk-year">2019</div>
+      <div class="talk-body">
+        <div class="talk-title">A Space of Symbols and the Cesàro Behaviour at Infinity</div>
+        <div class="talk-venue">
+          <span class="talk-type">Seminar</span>
+          Analysis Group Seminar · Universität Potsdam, Germany
+        </div>
+      </div>
+    </div>
+
+    <div class="talk-entry">
+      <div class="talk-year">2019</div>
+      <div class="talk-body">
+        <div class="talk-title">Notions of Spectral Action</div>
+        <div class="talk-venue">
+          <span class="talk-type">Short Communication</span>
+          Uniandes SRI-2019 on Geometry and Theoretical Physics · Villa de Leyva, Colombia
+        </div>
+      </div>
+    </div>
+
+    <div class="talk-entry">
+      <div class="talk-year">2018</div>
+      <div class="talk-body">
+        <div class="talk-title">Spectral Geometry and Spectral Action</div>
+        <div class="talk-venue">
+          <span class="talk-type">Short Communication</span>
+          CIMPA School on Noncommutative Geometry and Index Theory · CIMAT Mérida, Mexico
+        </div>
+      </div>
+    </div>
+
+    <div class="talk-entry">
+      <div class="talk-year">2017</div>
+      <div class="talk-body">
+        <div class="talk-title">Index Formulas of an Elliptic Operator</div>
+        <div class="talk-venue">
+          <span class="talk-type">Short Communication</span>
+          School on Geometric, Algebraic and Topological Methods for QFT · Villa de Leyva, Colombia
+        </div>
+      </div>
+    </div>
+
+    <div class="talk-entry">
+      <div class="talk-year">2017</div>
+      <div class="talk-body">
+        <div class="talk-title">The Weak* Topology on Distributions and Calculation Rules</div>
+        <div class="talk-venue">
+          <span class="talk-type">Short Communication</span>
+          TOP3-UD · Universidad Distrital Francisco José de Caldas, Bogotá
+        </div>
+      </div>
+    </div>
+
+    <div class="talk-entry">
+      <div class="talk-year">2017</div>
+      <div class="talk-body">
+        <div class="talk-title">Radon Measures: An Approximation of Topological Dual of L∞</div>
+        <div class="talk-venue">
+          <span class="talk-type">Short Communication</span>
+          VII Encuentro Nacional de Matemáticas y Estadística · Universidad del Tolima, Ibagué
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- TECH STACK -->
+  <section id="skills">
+    <h2>Tech Stack</h2>
+    <div class="techstack-row">
+      <div class="tech-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" width="45" height="45" alt="Python" />
+        <span>Python</span>
+      </div>
+      <div class="tech-item">
+        <i class="devicon-pytorch-plain colored"></i>
+        <span>PyTorch</span>
+      </div>
+        <div class="tech-item">
+        <img src="https://raw.githubusercontent.com/google/jax/main/images/jax_logo_250px.png" width="45" height="45" alt="JAX" />
+        <span>JAX</span>
+      </div>
+      <div class="tech-item">
+        <i class="devicon-git-plain colored"></i>
+        <span>Git</span>
+      </div>
+      <div class="tech-item">
+        <i class="devicon-docker-plain colored"></i>
+        <span>Docker</span>
+      </div>
+      <div class="tech-item">
+        <i class="devicon-flask-original" style="color: var(--text);"></i>
+        <span>Flask</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" width="45" height="45" alt="HTML5" />
+        <span>HTML</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="45" height="45" alt="JavaScript" />
+        <span>JavaScript</span>
+      </div>
+      <div class="tech-item">
+        <i class="devicon-postgresql-plain colored"></i>
+        <span>SQL</span>
+      </div>
+      <div class="tech-item">
+        <i class="devicon-bash-plain" style="color: var(--text);"></i>
+        <span>Bash</span>
+      </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  &copy; 2026 Daniel López-Castaño. All rights reserved.
+</footer>
+
+<script>
+  function toggleAbs(id, btn) {
+    const el = document.getElementById(id);
+    el.classList.toggle('open');
+    btn.textContent = el.classList.contains('open') ? 'hide abstract' : 'show abstract';
+  }
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('#site-nav a');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const link = document.querySelector(`#site-nav a[href="#${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
 </body>
 </html>
