@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pensamiento Geométrico para ML y Ciencias de Datos</title>
+  <title>Geometría para Ciencias de Datos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -233,6 +233,75 @@
     }
     .pkg-badge:hover { background: var(--accent); color: #fff; }
 
+    /* ── RESOURCES ── */
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .resource-card {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .resource-card strong {
+      display: block;
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .resource-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .resource-note {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(123, 111, 212, 0.08);
+      border-radius: 999px;
+      padding: 4px 10px;
+    }
+
+    /* ── MEDIA FEATURE ── */
+    .media-feature {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .media-feature video {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      background: #f3f3f7;
+    }
+
+    .media-feature-caption {
+      margin-top: 10px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .media-feature-caption strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
     /* ── SCHEDULE TABLE ── */
     .schedule-table {
       width: 100%;
@@ -267,6 +336,16 @@
       color: var(--text);
       padding-right: 24px;
       width: 120px;
+    }
+
+    .schedule-kind {
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 4px;
     }
 
     .session-name {
@@ -308,52 +387,6 @@
       margin-bottom: 3px;
     }
 
-    /* ── COLAB STEPS ── */
-    .colab-steps { counter-reset: colab-counter; }
-
-    .colab-step {
-      display: flex;
-      gap: 18px;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--rule);
-      align-items: flex-start;
-    }
-    .colab-step:last-child { border-bottom: none; }
-
-    .colab-step-num {
-      flex-shrink: 0;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--grad-a), var(--grad-b));
-      color: #fff;
-      font-size: 0.82rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .colab-step-body strong {
-      display: block;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 4px;
-      font-size: 0.95rem;
-    }
-
-    .colab-step-body p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    .colab-step-body a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    .colab-step-body a:hover { text-decoration: underline; }
-
     code {
       font-family: 'Courier New', monospace;
       font-size: 0.88em;
@@ -386,10 +419,10 @@
 <!-- ── BANNER ── -->
 <header class="banner">
   <div class="banner-inner">
-    <div class="banner-label">Curso de Extensión · Universidad Nacional de Colombia</div>
-    <h1>Pensamiento Geométrico para Machine Learning y Ciencias de Datos</h1>
-    <p class="banner-sub">9 – 13 de marzo de 2026 &nbsp;·&nbsp; Bogotá, Colombia</p>
-    <p class="banner-meta">Lunes a viernes · 5:00 p.m. – 7:00 p.m. · Modalidad híbrida</p>
+    <div class="banner-label">Cursillo · Universidad Nacional de Colombia</div>
+    <h1>Geometría para Ciencias de Datos</h1>
+    <p class="banner-sub">18 – 25 de agosto de 2026 &nbsp;·&nbsp; Bogotá, Colombia</p>
+    <p class="banner-meta">UN Encuentro 18 de agosto · Cursillo 19 a 21 de agosto, 5:00 p.m. – 6:30 p.m. · Charla 25 de agosto</p>
   </div>
 </header>
 
@@ -397,10 +430,7 @@
 <nav class="topnav">
   <ul id="site-nav">
     <a href="#descripcion">Descripción</a>
-    <a href="#instructores">Instructores</a>
-    <a href="#materiales">Materiales</a>
     <a href="#programa">Programa</a>
-    <a href="#colab">Google Colab</a>
   </ul>
 </nav>
 
@@ -412,14 +442,13 @@
     <h2>Descripción</h2>
     <p>
       Este curso intensivo está diseñado para introducir el pensamiento geométrico que fundamenta gran parte
-      del Machine Learning moderno y las Ciencias de Datos. Cada sesión comienza con una presentación teórica y culmina
-      con aplicaciones directas en Python, para desarrollar tanto la intuición conceptual
-      como la habilidad práctica.
+      del Machine Learning moderno y las Ciencias de Datos. La propuesta combina una charla introductoria, un cursillo
+      de tres sesiones y una charla final de investigación.
     </p>
     <p>
       Más allá de ver los métodos como <em>black-boxes</em>, estudiaremos los principios geométricos
-      desde los que se diseñan los algoritmos, por qué funcionan, y buscaremos ganar el vocabulario
-      y profundizar en los métodos que mayor interés.
+      desde los que se diseñan algunos algoritmos, por qué funcionan, y buscaremos ganar el vocabulario
+      necesario para leer y discutir literatura reciente.
     </p>
 
     <h3>Público objetivo</h3>
@@ -430,57 +459,6 @@
     </p>
   </section>
 
-  <!-- INSTRUCTORES -->
-  <section id="instructores">
-    <h2>Instructor y Monitor</h2>
-
-    <div class="lecturer">
-      <div class="lecturer-avatar">
-        <img src="images/profile.jpeg" alt="Daniel López-Castaño"
-             onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fa-solid fa-user\'></i>'" />
-      </div>
-      <div class="lecturer-info">
-        <strong>Daniel López-Castaño</strong>
-        <span>Ph.D. Candidate, Applied Mathematics &amp; Statistics · Johns Hopkins University</span>
-      </div>
-    </div>
-    <div class="lecturer">
-      <div class="lecturer-avatar">
-        <img src="images/profile.jpeg" alt="TBA"
-             onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fa-solid fa-user\'></i>'" />
-      </div>
-      <div class="lecturer-info">
-        <strong>TBA</strong>
-        <span></span>
-      </div>
-    </div>
-  </section>
-
-  <!-- MATERIALES -->
-  <section id="materiales">
-    <h2>Materiales</h2>
-
-    <ul>
-      <li>
-        <i class="fa-regular fa-file-pdf"></i>
-        Notas de clase (PDF por sesión)
-      </li>
-      <li>
-        <i class="fa-brands fa-python"></i>
-        Jupyter Notebooks para los talleres prácticos (vía Google Colab)
-      </li>
-      <li>
-        <i class="fa-solid fa-box-open"></i>
-        Paquetes de Python requeridos:
-        <div class="pkg-row" style="margin-top:10px;">
-          <a href="https://www.pymanopt.org/" target="_blank" class="pkg-badge">pymanopt</a>
-          <a href="https://pythonot.github.io/" target="_blank" class="pkg-badge">POT</a>
-          <a href="https://pytorch.org/" target="_blank" class="pkg-badge">pytorch</a>
-        </div>
-      </li>
-    </ul>
-  </section>
-
   <!-- PROGRAMA -->
   <section id="programa">
     <h2>Programa</h2>
@@ -488,166 +466,88 @@
     <table class="schedule-table">
       <thead>
         <tr>
-          <th>Día</th>
+          <th>Bloque</th>
           <th>Contenido</th>
         </tr>
       </thead>
       <tbody>
 
         <tr>
-          <td>Lunes<br/><small>Mar 9</small></td>
+          <td><span class="schedule-kind">Charla introductoria</span>UN Encuentro de Matemáticas</td>
           <td>
-            <span class="session-tag">Sesión 1</span>
-            <span class="session-name">Introducción a Geometric Data Science</span>
-            Motivación, fundamentos de geometría diferencial, optimización y probabilidad.
+            <span class="session-name">Geometría en ciencias de datos: por qué importa</span>
+            Motivación conceptual del curso y algunas ideas geométricas que atraviesan las Ciencias de Datos.
             <br/>
-            <!-- <strong style="color:var(--text); font-size:0.88rem;">Taller: Python</strong>
             <div class="session-links">
-              <a href="#" class="pub-link">Notas ↗</a>
-              <a href="#" class="pub-link"><i class="fa-brands fa-google" style="font-size:0.8em;"></i> Colab</a>
-            </div> -->
+              <span class="pub-link" style="cursor:default; opacity:0.9;">PDF de la presentación</span>
+            </div>
           </td>
         </tr>
 
         <tr>
-          <td>Martes<br/><small>Mar 10</small></td>
+          <td><span class="schedule-kind">Cursillo</span>Sesión 1</td>
           <td>
-            <span class="session-tag">Sesión 2</span>
-            <span class="session-name">Optimización en Variedades</span>
-            Optimización no lineal, variedades Riemannianas y variantes de PCA.
+            <span class="session-name">Optimización en espacios euclideanos y no euclideanos</span>
+            Fundamentos de optimización no lineal, con la transición natural hacia variedades y geometrías no euclideanas.
             <br/>
-            <!-- <strong style="color:var(--text); font-size:0.88rem;">Taller: ManOpt para Análisis de Factores</strong>
             <div class="session-links">
-              <a href="#" class="pub-link">Notas ↗</a>
-              <a href="#" class="pub-link"><i class="fa-brands fa-google" style="font-size:0.8em;"></i> Colab</a>
-            </div> -->
+              <span class="pub-link" style="cursor:default; opacity:0.9;">PDF de la presentación</span>
+            </div>
           </td>
         </tr>
 
         <tr>
-          <td>Miércoles<br/><small>Mar 11</small></td>
+          <td><span class="schedule-kind">Cursillo</span>Sesión 2</td>
           <td>
-            <span class="session-tag">Sesión 3</span>
-            <span class="session-name">Transporte Óptimo</span>
-            Problema de Monge, relajación de Kantorovich, dualidad y regularización.
+            <span class="session-name">Transporte óptimo</span>
+            Problema de Monge, relajación de Kantorovich, dualidad y regularización, con énfasis en la interpretación geométrica.
             <br/>
-            <!-- <strong style="color:var(--text); font-size:0.88rem;">Taller: Adaptación de Dominios</strong>
             <div class="session-links">
-              <a href="#" class="pub-link">Notas ↗</a>
-              <a href="#" class="pub-link"><i class="fa-brands fa-google" style="font-size:0.8em;"></i> Colab</a>
-            </div> -->
+              <span class="pub-link" style="cursor:default; opacity:0.9;">PDF de la presentación</span>
+            </div>
           </td>
         </tr>
 
         <tr>
-          <td>Jueves<br/><small>Mar 12</small></td>
+          <td><span class="schedule-kind">Cursillo</span>Sesión 3</td>
           <td>
-            <span class="session-tag">Sesión 4</span>
-            <span class="session-name">Machine Learning Equivariante</span>
-            Redes neuronales, invariancia y equivariancia, grupos y convolución sobre grupos.
+            <span class="session-name">Wasserstein Gradient Flows</span>
+            Flujos gradiente en el espacio de Wasserstein y su lectura como dinámica geométrica de distribuciones.
             <br/>
-            <!-- <strong style="color:var(--text); font-size:0.88rem;">Taller: Group CNN en PyTorch</strong>
             <div class="session-links">
-              <a href="#" class="pub-link">Notas ↗</a>
-              <a href="#" class="pub-link"><i class="fa-brands fa-google" style="font-size:0.8em;"></i> Colab</a>
-            </div> -->
+              <span class="pub-link" style="cursor:default; opacity:0.9;">PDF de la presentación</span>
+            </div>
           </td>
         </tr>
 
         <tr>
-          <td>Viernes<br/><small>Mar 13</small></td>
+          <td><span class="schedule-kind">Charla final</span>Investigación</td>
           <td>
-            <span class="session-tag">Sesión 5</span>
-            <span class="session-name">Geometría en Alta Dimensión</span>
-            Concentración de medida, números de empaquetamiento y Johnson–Lindenstrauss.
+            <span class="session-name">Morse Theory from Sample Points</span>
+            Charla de cierre sobre topología, inferencia geométrica a partir de muestras y perspectivas para investigación.
             <br/>
-            <!-- <strong style="color:var(--text); font-size:0.88rem;">Presentación de papers</strong>
-            <ul style="margin-top:8px; font-size:0.88rem;">
-              <li>Aprender simetría desde los datos: Lie PCA</li>
-              <li>Icosahedral CNN</li>
-              <li>Convolutional Wasserstein Distances</li>
-              <li>Wasserstein Gradient Flows</li>
-            </ul>
             <div class="session-links">
-              <a href="#" class="pub-link">Notas ↗</a>
-            </div> -->
+              <span class="pub-link" style="cursor:default; opacity:0.9;">PDF de la presentación</span>
+            </div>
           </td>
         </tr>
 
       </tbody>
     </table>
-  </section>
-
-  <!-- GOOGLE COLAB -->
-  <section id="colab">
-    <h2>Uso de Google Colab</h2>
-
-    <div class="colab-steps">
-
-      <div class="colab-step">
-        <div class="colab-step-num">1</div>
-        <div class="colab-step-body">
-          <strong>Inicia sesión con tu cuenta de Google</strong>
-          <p>Entra a <a href="https://colab.research.google.com" target="_blank">colab.research.google.com</a> e inicia sesión. Si no tienes cuenta, puedes crear una gratuitamente.</p>
-        </div>
-      </div>
-
-      <div class="colab-step">
-        <div class="colab-step-num">2</div>
-        <div class="colab-step-body">
-          <strong>Introducción a Google Colab</strong>
-          <p>
-            Este <a href="https://colab.research.google.com/notebooks/basic_features_overview.ipynb" target="_blank">notebook introductorio</a>
-            ofrece un recorrido por las funcionalidades principales de Colab.
-          </p>
-        </div>
-      </div>
-
-      <div class="colab-step">
-        <div class="colab-step-num">3</div>
-        <div class="colab-step-body">
-          <strong>Instalar los paquetes requeridos</strong>
-          <p>
-            Al inicio de cada notebook encontrarás una celda de instalación. Ejecútala antes de
-            comenzar el taller:
-          </p>
-          <p style="margin-top:8px;">
-            <code>!pip install pymanopt POT torch torchvision</code>
-          </p>
-        </div>
-      </div>
-
-      <div class="colab-step">
-        <div class="colab-step-num">4</div>
-        <div class="colab-step-body">
-          <strong>Abrir un notebook desde el enlace del programa</strong>
-          <p>
-            Haz clic en el enlace <em>Colab</em> de la sesión correspondiente en la tabla de
-            arriba. El notebook se abrirá directamente en tu cuenta. Ve a
-            <strong>Archivo → Guardar una copia en Drive</strong> para conservar tus cambios.
-          </p>
-        </div>
-      </div>
-
-      <div class="colab-step">
-        <div class="colab-step-num">5</div>
-        <div class="colab-step-body">
-          <strong>Activar aceleración por GPU (opcional)</strong>
-          <p>
-            Para las sesiones de deep learning ve a
-            <strong>Entorno de ejecución → Cambiar tipo de entorno de ejecución</strong>
-            y selecciona <em>GPU</em> como acelerador de hardware.
-          </p>
-        </div>
-      </div>
+    <div class="media-feature">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="AxisVoronoiSphere.mp4" type="video/mp4" />
+        Tu navegador no puede reproducir este video.
+      </video>
 
     </div>
   </section>
 
 </div>
 
+
 <footer>
-  &copy; 2026 Daniel López-Castaño · Universidad Nacional de Colombia, Sede Bogotá.
+  &copy; 2026 Daniel López-Castaño
 </footer>
 
 <script>
