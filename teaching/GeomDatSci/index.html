@@ -441,21 +441,17 @@
   <section id="descripcion">
     <h2>Descripción</h2>
     <p>
-      Este curso intensivo está diseñado para introducir el pensamiento geométrico que fundamenta gran parte
-      del Machine Learning moderno y las Ciencias de Datos. La propuesta combina una charla introductoria, un cursillo
-      de tres sesiones y una charla final de investigación.
-    </p>
-    <p>
-      Más allá de ver los métodos como <em>black-boxes</em>, estudiaremos los principios geométricos
-      desde los que se diseñan algunos algoritmos, por qué funcionan, y buscaremos ganar el vocabulario
-      necesario para leer y discutir literatura reciente.
+      Este curso busca introducir la intuición geométrica que sustenta métodos recientes en ciencias de datos y machine 
+      learning. En lugar de considerar los métodos como <em>black-boxes</em>, exploraremos los principios geométricos 
+      que los sustentan, entenderemos por qué funcionan y adquiriremos el vocabulario necesario para leer y analizar 
+      literatura actual. Los temas incluirán optimización en variedades diferenciables, teoría del transporte óptimo y 
+      sus aplicaciones, como la teoría del flujo gradiente en el espacio de Wasserstein y otras. 
     </p>
 
     <h3>Público objetivo</h3>
     <p>
-      Profesionales y estudiantes de últimos semestres de matemáticas, estadística o ciencias de
-      la computación. Científicos de datos o ingenieros en inteligencia artificial que deseen
-      aprender herramientas más allá del contenido clásico.
+      Profesionales y estudiantes de matemáticas, estadística o ciencias de
+      la computación con conocimientos básicos de cálculo, álgebra lineal y probabilidad. 
     </p>
   </section>
 
@@ -473,10 +469,18 @@
       <tbody>
 
         <tr>
-          <td><span class="schedule-kind">Charla introductoria</span>UN Encuentro de Matemáticas</td>
+          <td><span class="schedule-kind">Charla</span>UN Encuentro de Matemáticas</td>
           <td>
-            <span class="session-name">Geometría en ciencias de datos: por qué importa</span>
-            Motivación conceptual del curso y algunas ideas geométricas que atraviesan las Ciencias de Datos.
+            <span class="session-name">Wasserstein approximation of measures via orthogonal frames</span>
+            How well can we estimate the latent orthogonal factors of a probability distribution from random samples? 
+            This question sits at the intersection of optimal transport theory and factor analysis. In this talk, we 
+            show how to recover the orthogonal frame that best approximates the distribution in Wasserstein distance, 
+            via empirical risk minimization and an online stochastic subgradient method on the Stiefel manifold. A 
+            central difficulty is that the empirical objective is non-smooth, so standard M-estimation arguments do not 
+            apply. We circumvent this with a Clarke subdifferential analysis combined with a geometric covering argument 
+            on the sphere. The result is near-parametric convergence rates with polynomial, rather than exponential, 
+            dependence on the dimension, escaping the curse of dimensionality inherent in Wasserstein approximation. 
+            We close with numerical examples and real-world data applications. 
             <br/>
             <div class="session-links">
               <span class="pub-link" style="cursor:default; opacity:0.9;">PDF de la presentación</span>
@@ -487,8 +491,8 @@
         <tr>
           <td><span class="schedule-kind">Cursillo</span>Sesión 1</td>
           <td>
-            <span class="session-name">Optimización en espacios euclideanos y no euclideanos</span>
-            Fundamentos de optimización no lineal, con la transición natural hacia variedades y geometrías no euclideanas.
+            <span class="session-name">Optimización en espacios no euclideanos</span>
+            Introducción a la optimización en variedades riemannianas y aplicaciones.
             <br/>
             <div class="session-links">
               <span class="pub-link" style="cursor:default; opacity:0.9;">PDF de la presentación</span>
@@ -519,19 +523,6 @@
             </div>
           </td>
         </tr>
-
-        <tr>
-          <td><span class="schedule-kind">Charla final</span>Investigación</td>
-          <td>
-            <span class="session-name">Wasserstein Approximation of Measures via Orthogonal Frames</span>
-            Charla de cierre sobre analisis de factores estudiados a traves de la métrica de Wasserstein y optimizacion en el grupo ortogonal.
-            <br/>
-            <div class="session-links">
-              <span class="pub-link" style="cursor:default; opacity:0.9;">PDF de la presentación</span>
-            </div>
-          </td>
-        </tr>
-
       </tbody>
     </table>
     <div class="media-feature">
