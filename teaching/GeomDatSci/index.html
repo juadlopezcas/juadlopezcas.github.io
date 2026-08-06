@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Geometría para Ciencias de Datos</title>
+  <title>Geometría en ciencias de datos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -376,6 +376,67 @@
     }
     .pub-link:hover { background: var(--accent); color: #fff; }
 
+    .abstract-toggle {
+      margin-top: 10px;
+      padding-top: 10px;
+      /* border-top: 1px solid var(--rule); */
+    }
+
+    .abstract-toggle summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .abstract-toggle summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .abstract-toggle[open] summary {
+      display: none;
+    }
+
+    .abstract-teaser {
+      flex: 1;
+      color: var(--muted);
+      display: -webkit-box;
+      line-clamp: 3;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .abstract-cta {
+      flex-shrink: 0;
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      padding: 4px 10px;
+      transition: background .2s, color .2s;
+    }
+
+    .abstract-toggle:hover .abstract-cta,
+    .abstract-toggle[open] .abstract-cta {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .abstract-full {
+      margin-top: 10px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .abstract-toggle[open] .abstract-full {
+      margin-top: 0;
+    }
+
     .session-tag {
       font-size: 0.7rem;
       font-weight: 500;
@@ -422,7 +483,7 @@
     <div class="banner-label">Cursillo · Universidad Nacional de Colombia</div>
     <h1>Geometría en Ciencias de Datos</h1>
     <p class="banner-sub">18 – 25 de agosto de 2026 &nbsp;·&nbsp; Bogotá, Colombia</p>
-    <p class="banner-meta">UN Encuentro 18 de agosto · Cursillo 19 a 21 de agosto, 5:00 p.m. – 6:30 p.m. · Charla 25 de agosto</p>
+    <p class="banner-meta">UN Encuentro 18 de agosto · Cursillo 19 a 21 de agosto</p>
   </div>
 </header>
 
@@ -469,18 +530,23 @@
       <tbody>
 
         <tr>
-          <td><span class="schedule-kind">Charla</span>UN Encuentro de Matemáticas</td>
+          <td><span class="schedule-kind">Charla</span>UN Encuentro de Matemáticas: 2:30 p.m. - 3:30 p.m.</td>
           <td>
             <span class="session-name">Wasserstein approximation of measures via orthogonal frames</span>
-            How well can we estimate the latent orthogonal factors of a probability distribution from random samples? 
-            This question sits at the intersection of optimal transport theory and factor analysis. In this talk, we 
-            show how to recover the orthogonal frame that best approximates the distribution in Wasserstein distance, 
-            via empirical risk minimization and an online stochastic subgradient method on the Stiefel manifold. A 
-            central difficulty is that the empirical objective is non-smooth, so standard M-estimation arguments do not 
-            apply. We circumvent this with a Clarke subdifferential analysis combined with a geometric covering argument 
-            on the sphere. The result is near-parametric convergence rates with polynomial, rather than exponential, 
-            dependence on the dimension, escaping the curse of dimensionality inherent in Wasserstein approximation. 
-            We close with numerical examples and real-world data applications. 
+            <details class="abstract-toggle">
+              <summary>
+                <span class="abstract-teaser">How well can we estimate the latent orthogonal factors of a probability distribution from random samples? This question sits at the intersection of optimal transport theory and factor analysis. In this talk, we show how to recover the orthogonal frame that best approximates the distribution in Wasserstein distance, via empirical risk minimization and an online stochastic subgradient method on the Stiefel manifold.</span>
+                <span class="abstract-cta">Ver abstract</span>
+              </summary>
+              <div class="abstract-full">
+                How well can we estimate the latent orthogonal factors of a probability distribution from random samples? This question sits at the intersection of optimal transport theory and factor analysis. In this talk, we show how to recover the orthogonal frame that best approximates the distribution in Wasserstein distance, via empirical risk minimization and an online stochastic subgradient method on the Stiefel manifold. 
+                A central difficulty is that the empirical objective is non-smooth, so standard M-estimation arguments do not
+                apply. We circumvent this with a Clarke subdifferential analysis combined with a geometric covering argument
+                on the sphere. The result is near-parametric convergence rates with polynomial, rather than exponential,
+                dependence on the dimension, escaping the curse of dimensionality inherent in Wasserstein approximation.
+                We close with numerical examples and real-world data applications.
+              </div>
+            </details>
             <br/>
             <div class="session-links">
               <span class="pub-link" style="cursor:default; opacity:0.9;">PDF de la presentación</span>
@@ -489,7 +555,7 @@
         </tr>
 
         <tr>
-          <td><span class="schedule-kind">Cursillo</span>Sesión 1</td>
+          <td><span class="schedule-kind">Cursillo</span>Sesión 1: 5:30 p.m. - 6:30 p.m.</td>
           <td>
             <span class="session-name">Optimización en espacios no euclideanos</span>
             Introducción a la optimización en variedades riemannianas y aplicaciones.
@@ -501,7 +567,7 @@
         </tr>
 
         <tr>
-          <td><span class="schedule-kind">Cursillo</span>Sesión 2</td>
+          <td><span class="schedule-kind">Cursillo</span>Sesión 2: 6:45 p.m. - 7:45 p.m.</td>
           <td>
             <span class="session-name">Transporte óptimo</span>
             Problema de Monge, relajación de Kantorovich, dualidad y regularización, con énfasis en la interpretación geométrica.
@@ -513,7 +579,7 @@
         </tr>
 
         <tr>
-          <td><span class="schedule-kind">Cursillo</span>Sesión 3</td>
+          <td><span class="schedule-kind">Cursillo</span>Sesión 3: 2:30 p.m. - 3:30 p.m.</td>
           <td>
             <span class="session-name">Wasserstein Gradient Flows</span>
             Flujos gradiente en el espacio de Wasserstein y su lectura como dinámica geométrica de distribuciones.
