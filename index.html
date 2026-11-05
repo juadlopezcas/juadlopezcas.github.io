@@ -324,6 +324,8 @@
       font-weight: 500;
     }
     .blog-card a.read-more:hover { text-decoration: underline; }
+    .blog-card.news-hidden { display: none; }
+    .news-more { margin-top: 12px; font-size: 0.85rem; }
 
     /* ── TEACHING ── */
     .teaching-entry {
@@ -536,6 +538,12 @@
     <h2>News</h2>
 
     <div class="blog-card">
+      <div class="date">November 2026</div>
+      <h3>Looking for positions</h3>
+      <p>I'm looking for academic postdoc and/or industry research positions. Send me an email! (See <a href="docs/cv.pdf" target="_blank">CV</a>)</p>
+    </div>
+
+    <div class="blog-card">
       <div class="date">August 31-September 4, 2026</div>
       <h3>Talk at INABAG School+Conference</h3>
       <p>Presented research on estimation of Morse indices from samples at the INABAG School+Conference in applied algebraic geometry in Siena, Italy.</p>
@@ -666,19 +674,18 @@
 
   <!-- PUBLICATIONS -->
   <section id="publications">
-    <h2>Publications</h2>
+    <h2>Publications & Preprints</h2>
 
     <div class="pub">
       <div class="pub-label">Arxiv preprint · 2026</div>
       <div class="pub-title">Wasserstein approximation of measures via orthogonal frames: statistical and computational complexities</div>
       <div class="pub-authors">Daniel López-Castaño, Mateo Díaz, Nicolás García Trillos, Congwei Yang</div>
-      <div class="pub-abstract" id="abs-1">
-        Established the near-parametric rate $O_d(n^{-1/2})$ for nonsmooth orthogonal-dictionary learning estimation for both the empirical risk minimizer and Riemannian SGD convergence.
-        Research conducted in collaboration with Mateo Díaz (U. Chicago) and, Nicolás García Trillos and Congwei Yang (Wisconsin Madison).
+      <div class="pub-abstract" id="abs-2">
+        Established the near-parametric rate $O_d(n^{-1/2})$ for nonsmooth orthogonal-dictionary learning estimation for both the empirical risk minimizer and Riemannian SGD convergence. Research conducted in collaboration with Mateo Díaz (U. Chicago) and Nicolás García Trillos and Congwei Yang (Wisconsin-Madison).
       </div>
       <div class="pub-links">
         <a class="pub-link" href="https://arxiv.org/pdf/2610.36581" target="_blank">Publication ↗</a>
-        <button class="toggle-abstract" onclick="toggleAbs('abs-1', this)">show abstract</button>
+        <button class="toggle-abstract" onclick="toggleAbs('abs-2', this)">show more</button>
       </div>
     </div>
 
@@ -691,7 +698,7 @@
       </div>
       <div class="pub-links">
         <a class="pub-link" href="https://repositorio.unal.edu.co/handle/unal/79294" target="_blank">Publication ↗</a>
-        <button class="toggle-abstract" onclick="toggleAbs('abs-1', this)">show abstract</button>
+        <button class="toggle-abstract" onclick="toggleAbs('abs-1', this)">show more</button>
       </div>
     </div>
 
@@ -954,7 +961,24 @@
   function toggleAbs(id, btn) {
     const el = document.getElementById(id);
     el.classList.toggle('open');
-    btn.textContent = el.classList.contains('open') ? 'hide abstract' : 'show abstract';
+    btn.textContent = el.classList.contains('open') ? 'hide' : 'show more';
+  }
+
+  // Show only the first few news items, with a "more" toggle for the rest
+  const NEWS_VISIBLE = 3;
+  const newsCards = document.querySelectorAll('#news .blog-card');
+  if (newsCards.length > NEWS_VISIBLE) {
+    const extra = Array.from(newsCards).slice(NEWS_VISIBLE);
+    extra.forEach(c => c.classList.add('news-hidden'));
+    const btn = document.createElement('button');
+    btn.className = 'toggle-abstract news-more';
+    btn.textContent = `more (${extra.length})`;
+    btn.onclick = () => {
+      const expand = extra[0].classList.contains('news-hidden');
+      extra.forEach(c => c.classList.toggle('news-hidden', !expand));
+      btn.textContent = expand ? 'less' : `more (${extra.length})`;
+    };
+    document.getElementById('news').appendChild(btn);
   }
 
   const sections = document.querySelectorAll('section[id]');
