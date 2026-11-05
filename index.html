@@ -425,11 +425,13 @@
       gap: 6px;
       text-decoration: none;
     }
-    .tech-item i {
+    .tech-item i,
+    .tech-item img {
       font-size: 2.8rem;
       transition: transform .2s, opacity .2s;
     }
-    .tech-item:hover i { transform: translateY(-3px); opacity: 0.85; }
+    .tech-item:hover i,
+    .tech-item:hover img { transform: translateY(-3px); opacity: 0.85; }
     .tech-item span {
       font-size: 0.72rem;
       font-weight: 500;
@@ -458,6 +460,20 @@
       .talk-entry { flex-direction: column; gap: 2px; }
     }
   </style>
+      <!-- 1. Configure MathJax to recognize dollar sign delimiters -->
+  <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+  </script>
+    
+    <!-- 2. Load the MathJax library from CDN -->
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 </head>
 <body>
 
@@ -490,7 +506,7 @@
     <a href="#news">News</a>
     <a href="#projects">Projects</a>
     <a href="#blog">Blog</a>
-    <a href="#publications">Published Work</a>
+    <a href="#publications">Publications</a>
     <a href="#teaching">Teaching</a>
     <a href="#talks">Talks</a>
   </ul>
@@ -503,11 +519,7 @@
   <section id="about">
     <h2>About</h2>
     <p>
-      I am a Ph.D. Candidate in Applied Mathematics and Statistics at Johns Hopkins University,
-      advised by Mateo Díaz and Soledad Villar. My research sits at the intersection of
-      optimal transport, Riemannian optimization, and manifold learning. Beyond research,
-      I dedicate time to teaching and mentoring. My interests extend to
-      cycling, artisanal coffee, and anime/tv-shows. 
+      I am a Ph.D. Candidate in Applied Mathematics and Statistics at Johns Hopkins University, advised by Mateo Díaz and Soledad Villar. My research sits at the intersection of optimal transport, Riemannian optimization, and manifold learning. Beyond research, I teach and mentor. My interests include cycling, artisanal coffee, and anime/TV shows. 
     </p>
   </section>
 
@@ -515,12 +527,7 @@
   <section id="bio">
     <h2>Bio</h2>
     <p>
-      I obtained a M.Sc. in Applied Mathematics and Statistics from Johns Hopkins University in 2024, and 
-      a M.Sc. in Mathematics from the Universidad Nacional de Colombia in 2020, where I worked on spectral 
-      geometry and noncommutative geometry under the supervision of Prof. Sylvie Paycha 
-      and Prof. Carolina Neira Jiménez. During the latter, I did a research internship at the Institute fur 
-      Mathematik of the Universität Potsdam. I also worked as a Machine Learning Engineer at Vozy, a Latin 
-      American startup specializing in conversational AI. 
+      I obtained an M.Sc. in Applied Mathematics and Statistics from Johns Hopkins University in 2024, and an M.Sc. in Mathematics from the Universidad Nacional de Colombia in 2020, where I worked on spectral geometry and noncommutative geometry under the supervision of Prof. Sylvie Paycha and Prof. Carolina Neira Jiménez. During my time there, I completed a research internship at the Institute for Mathematics of the Universität Potsdam. I worked as a Machine Learning Engineer at Vozy, a Latin American startup specializing in conversational AI. I also completed research internships at the Johns Hopkins University Applied Physics Laboratory and the Inter-American Development Bank.
     </p>
   </section>
 
@@ -531,7 +538,7 @@
     <div class="blog-card">
       <div class="date">August 31-September 4, 2026</div>
       <h3>Talk at INABAG School+Conference</h3>
-      <p>Presented research on estimation of morse indices from samples at the INABAG School+Conference in applied algebraic geometry in Siena, Italy.</p>
+      <p>Presented research on estimation of Morse indices from samples at the INABAG School+Conference in applied algebraic geometry in Siena, Italy.</p>
       <p class="blog-link"><a href="https://sites.google.com/unitn.it/inabag/inabag-conferences/2026-school-conference-siena" target="_blank">More info</a></p>
     </div>
 
@@ -574,9 +581,7 @@
         <h3><a href="">Systemic Risk Framework</a></h3>
         <div class="project-meta">Research Consultant · 2026 – Present</div>
         <p>
-          Developed a framework for systemic risk that models direct and cascading dependencies 
-          across both external drivers and institutional risk networks. Built a regularized 
-          graph autoregressive forecasting model combining temporal lags and high-order network effects. 
+          Developed a systemic risk framework that models direct and cascading dependencies across external drivers and institutional risk networks. Built a regularized graph autoregressive forecasting model that combines temporal lags with higher-order network effects. 
         </p>
       </div>
     </div>
@@ -589,7 +594,7 @@
       </div>
       <div class="project-info">
         <h3><a href="projects/gfa">Geometric Factor Analysis</a></h3>
-        <div class="project-meta">Research · 2024 – Present</div>
+        <div class="project-meta">Research · 2024 – 2026</div>
         <p>
           Uncovering latent factors in data by mapping onto optimized orthogonal reference
           frames in the Stiefel manifold, combining optimal transport with Riemannian
@@ -608,9 +613,7 @@
         <h3><a href="https://github.com/juadlopezcas/vision-guided-drone/" target="_blank">Vision Guided Drone</a></h3>
         <div class="project-meta">Mentor · Feb 2025 – May 2025</div>
         <p>
-          Mentored a team of three high school interns at Johns Hopkins University in developing
-          an autonomous drone navigation system using computer vision and optimization techniques
-          for safe and efficient flight path planning.
+          Mentored three high school interns at Johns Hopkins University in developing autonomous drone navigation, implementing computer vision and path optimization algorithms for efficient flight.
         </p>
       </div>
     </div>
@@ -625,9 +628,7 @@
         <h3><a href="https://github.com/schmidttgenstein/qudost/tree/check_grad" target="_blank">Qudost</a></h3>
         <div class="project-meta">Research · May 2023 – May 2024</div>
         <p>
-          Advances density estimation by transforming it into a supervised learning problem,
-          enabling real-time inference via universal approximation. Research conducted at
-          the Johns Hopkins University Applied Physics Laboratory.
+          Advances density estimation by framing it as a supervised learning problem, enabling real-time inference through universal approximation—research conducted at the Johns Hopkins University Applied Physics Laboratory.
         </p>
       </div>
     </div>
@@ -642,9 +643,7 @@
         <h3><a href="https://www.vozy.co/vobio" target="_blank">VoBio</a></h3>
         <div class="project-meta">Machine Learning Engineer · 2020 – 2021</div>
         <p>
-          Voice biometrics authentication system developed in PyTorch and TensorFlow, one of
-          the first of its kind deployed for corporate use in Latin America. Integrated into
-          Vozy's client authentication framework with real-time inference capabilities.
+          Voice biometrics authentication system, developed using PyTorch and TensorFlow, that surpassed contemporary state-of-the-art benchmarks. Integrated into Vozy's client authentication framework with real-time inference capabilities.
         </p>
       </div>
     </div>
@@ -657,7 +656,7 @@
 
     <div class="blog-card">
       <div class="date">December 4, 2024</div>
-      <h3>Understanding Factor Analysis Through Geometric Lenses</h3>
+      <h3>Understanding Factor Analysis through geometric lenses</h3>
       <p>Exploring the intersection of geometry and statistical analysis to uncover hidden patterns in high-dimensional data structures.</p>
       <a class="read-more" href="projects/gfa">Read more →</a>
     </div>
@@ -667,19 +666,28 @@
 
   <!-- PUBLICATIONS -->
   <section id="publications">
-    <h2>Published Work</h2>
+    <h2>Publications</h2>
+
+    <div class="pub">
+      <div class="pub-label">Arxiv preprint · 2026</div>
+      <div class="pub-title">Wasserstein approximation of measures via orthogonal frames: statistical and computational complexities</div>
+      <div class="pub-authors">Daniel López-Castaño, Mateo Díaz, Nicolás García Trillos, Congwei Yang</div>
+      <div class="pub-abstract" id="abs-1">
+        Established the near-parametric rate $O_d(n^{-1/2})$ for nonsmooth orthogonal-dictionary learning estimation for both the empirical risk minimizer and Riemannian SGD convergence.
+        Research conducted in collaboration with Mateo Díaz (U. Chicago) and, Nicolás García Trillos and Congwei Yang (Wisconsin Madison).
+      </div>
+      <div class="pub-links">
+        <a class="pub-link" href="https://arxiv.org/pdf/2610.36581" target="_blank">Publication ↗</a>
+        <button class="toggle-abstract" onclick="toggleAbs('abs-1', this)">show abstract</button>
+      </div>
+    </div>
 
     <div class="pub">
       <div class="pub-label">Master's Thesis · 2020</div>
       <div class="pub-title">A Distributional Approach to Asymptotics of the Spectral Action</div>
       <div class="pub-authors">Daniel López-Castaño</div>
       <div class="pub-abstract" id="abs-1">
-        The spectral action, introduced by Chamseddine and Connes in 1997, is the natural and
-        appropriate notion of an action on the space of spectral triples. After presenting key
-        definitions and results from the Cesàro theory of distributions and asymptotic analysis,
-        we discuss the asymptotic expansion of the spectral action in the distributional sense
-        for a commutative spectral triple, following Estrada, Gracia-Bondía, and Várilly.
-        Research conducted at Universität Potsdam under the supervision of Prof. Sylvie Paycha.
+        The spectral action, introduced by Chamseddine and Connes in 1997, is the natural and appropriate notion of an action on the space of spectral triples. After presenting key definitions and results from the Cesàro theory of distributions and asymptotic analysis, we discuss the asymptotic expansion of the spectral action in the distributional sense for a commutative spectral triple, following Estrada, Gracia-Bondía, and Várilly—research conducted at Universität Potsdam under the supervision of Prof. Sylvie Paycha.
       </div>
       <div class="pub-links">
         <a class="pub-link" href="https://repositorio.unal.edu.co/handle/unal/79294" target="_blank">Publication ↗</a>
@@ -709,6 +717,7 @@
     <div class="teaching-entry">
       <h3>Universidad Nacional de Colombia</h3>
       <ul>
+        <li>Geometric Data Science (Minicourse) · 2026-2 <span class="te-role">(Instructor)</span></li>
         <li>Cálculo Diferencial (Calculus 1) · 2018-2, 2019-1 <span class="te-role">(Instructor)</span></li>
       </ul>
     </div>
@@ -720,9 +729,31 @@
     <h2>Talks &amp; Presentations</h2>
 
     <div class="talk-entry">
+      <div class="talk-year">2026</div>
+      <div class="talk-body">
+        <div class="talk-title">Estimating Morse indices from samples</div>
+        <div class="talk-venue">
+          <span class="talk-type">Short Communication</span>
+          INABAG School+Conference · University of Siena, Siena, Italy
+        </div>
+      </div>
+    </div>
+
+    <div class="talk-entry">
+      <div class="talk-year">2026</div>
+      <div class="talk-body">
+        <div class="talk-title">Wasserstein approximation of measures via orthogonal frames</div>
+        <div class="talk-venue">
+          <span class="talk-type">Conference</span>
+          Statistics and Data Science Workshop · Universidad de Los Andes, Bogotá, Colombia
+        </div>
+      </div>
+    </div>
+
+    <div class="talk-entry">
       <div class="talk-year">2025</div>
       <div class="talk-body">
-        <div class="talk-title">Estimating Morse Information from Samples</div>
+        <div class="talk-title">Estimating Morse information from samples</div>
         <div class="talk-venue">
           <span class="talk-type">Poster</span>
           Statistics and Data Science Workshop · Universidad de Los Andes, Bogotá, Colombia
@@ -757,7 +788,7 @@
     <div class="talk-entry">
       <div class="talk-year">2023</div>
       <div class="talk-body">
-        <div class="talk-title">Inference Fast Density Estimation via Universal Approximators</div>
+        <div class="talk-title">Inference-fast density estimation via universal approximators</div>
         <div class="talk-venue">
           <span class="talk-type">Poster</span>
           Johns Hopkins AI-X Foundry Fall Symposium · Baltimore, MD
@@ -768,7 +799,7 @@
     <div class="talk-entry">
       <div class="talk-year">2019</div>
       <div class="talk-body">
-        <div class="talk-title">On Vibrating Strings, Drums and What Can and Cannot Be Heard</div>
+        <div class="talk-title">On vibrating strings, drums and what can and cannot be heard</div>
         <div class="talk-venue">
           <span class="talk-type">Conference</span>
           Colloquium, Mathematics Department · Universidad Nacional de Colombia, Bogotá
@@ -779,7 +810,7 @@
     <div class="talk-entry">
       <div class="talk-year">2019</div>
       <div class="talk-body">
-        <div class="talk-title">On the Distributional Asymptotic Expansion of the Spectral Action</div>
+        <div class="talk-title">On the distributional asymptotic expansion of the Spectral Action</div>
         <div class="talk-venue">
           <span class="talk-type">Seminar</span>
           Analysis Group Seminar · Universität Potsdam, Germany
@@ -790,10 +821,10 @@
     <div class="talk-entry">
       <div class="talk-year">2019</div>
       <div class="talk-body">
-        <div class="talk-title">Sunada's Technique for Constructing Isospectral Manifolds</div>
+        <div class="talk-title">Sunada's technique for constructing isospectral manifolds</div>
         <div class="talk-venue">
           <span class="talk-type">Short Communication</span>
-          Summer School on L²-Torsion and Symmetric Spaces · Universität Göttingen, Germany
+          Summer School on $L^2$-Torsion and Symmetric Spaces · Universität Göttingen, Germany
         </div>
       </div>
     </div>
@@ -801,7 +832,7 @@
     <div class="talk-entry">
       <div class="talk-year">2019</div>
       <div class="talk-body">
-        <div class="talk-title">A Space of Symbols and the Cesàro Behaviour at Infinity</div>
+        <div class="talk-title">A space of symbols and the Cesàro behavior at infinity</div>
         <div class="talk-venue">
           <span class="talk-type">Seminar</span>
           Analysis Group Seminar · Universität Potsdam, Germany
@@ -834,7 +865,7 @@
     <div class="talk-entry">
       <div class="talk-year">2017</div>
       <div class="talk-body">
-        <div class="talk-title">Index Formulas of an Elliptic Operator</div>
+        <div class="talk-title">Index formulas of an elliptic operator</div>
         <div class="talk-venue">
           <span class="talk-type">Short Communication</span>
           School on Geometric, Algebraic and Topological Methods for QFT · Villa de Leyva, Colombia
@@ -845,7 +876,7 @@
     <div class="talk-entry">
       <div class="talk-year">2017</div>
       <div class="talk-body">
-        <div class="talk-title">The Weak* Topology on Distributions and Calculation Rules</div>
+        <div class="talk-title">The weak$^*$ topology on distributions and calculation rules</div>
         <div class="talk-venue">
           <span class="talk-type">Short Communication</span>
           TOP3-UD · Universidad Distrital Francisco José de Caldas, Bogotá
@@ -856,7 +887,7 @@
     <div class="talk-entry">
       <div class="talk-year">2017</div>
       <div class="talk-body">
-        <div class="talk-title">Radon Measures: An Approximation of Topological Dual of L∞</div>
+        <div class="talk-title">Radon measures: an approximation of the topological dual of $L^\infty$</div>
         <div class="talk-venue">
           <span class="talk-type">Short Communication</span>
           VII Encuentro Nacional de Matemáticas y Estadística · Universidad del Tolima, Ibagué
